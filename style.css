@@ -6,6 +6,12 @@
 @font-face {font-family: "Druk Wide Bold"; src: url("//db.onlinewebfonts.com/t/2206d6cc490084998d531e8c1b2cbb4a.eot"); src: url("//db.onlinewebfonts.com/t/2206d6cc490084998d531e8c1b2cbb4a.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/2206d6cc490084998d531e8c1b2cbb4a.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/2206d6cc490084998d531e8c1b2cbb4a.woff") format("woff"), url("//db.onlinewebfonts.com/t/2206d6cc490084998d531e8c1b2cbb4a.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/2206d6cc490084998d531e8c1b2cbb4a.svg#Druk Wide Bold") format("svg"); }
 
 
+
+html {
+  scroll-behavior: smooth;
+}
+
+
 * {
   margin: 0;
   padding: 0;
@@ -30,6 +36,8 @@ body{
 	  box-sizing: border-box;
 	background-color: #CFE4FF;
 	overflow-x: hidden;
+	 
+
 }
 
 
@@ -71,6 +79,9 @@ body{
 }
 
 
+
+
+
 .menu_items{
 	padding: 25px;
 }
@@ -92,7 +103,25 @@ body{
 
 
 
+.logok{
+	position: fixed;
+	z-index: 40;
+	display: grid;
+	grid-template-columns: auto auto auto;
+	left: 30px;
+	bottom: 20px;;
+}
 
+.logok img{
+	height: 30px;
+	padding: 10px;
+	background-color: white;
+}
+
+.logok img:hover{
+	filter: invert();
+	
+}
 
 #hero{
 	margin: 0;
@@ -115,13 +144,17 @@ background-color: #CFE4FF;
 	
 }
 
-.hero_image:hover{
-	
-  filter:invert();
-	transform: scale(1.01);
 
+
+
+.date{
+	height: 50px;
+	top:90vh;
+	margin-bottom: 30vh;
+	position: absolute;
+	float: left;
+	padding-left: 30vw;
 }
-
 
 .hero_image{
 	
