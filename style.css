@@ -222,19 +222,71 @@ position:inherit;
 }
 
 
+/* CSS */
+.button {
+  background-color: black;
+  border: 0 solid white;
+  box-sizing: border-box;
+  color: #000000;
+  display: flex;
+ 
+  font-size: 1rem;
+  font-weight: 700;
+  justify-content: center;
+  line-height: 1.75rem;
+  padding: .75rem 1.65rem;
+  position: relative;
+  text-align: center;
+  text-decoration: none #000000 solid;
+  text-decoration-thickness: auto;
+  width: 100%;
+  max-width: 460px;
+  position: relative;
+  cursor: pointer;
+  transform: rotate(-2deg);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
 
-.button img{
-	
-	width: 20px;
+.button:focus {
+  outline: 0;
+}
+
+.button:after {
+  content: '';
+  position: absolute;
+  border: 5px solid white;
+  bottom: 4px;
+  left: 4px;
+  width: calc(100% - 1px);
+  height: calc(100% - 1px);
+}
+
+.button:hover:after {
+  bottom: 2px;
+  left: 2px;
+}
+
+
+
+.button {
 	position: relative;
 	margin-top: 88vh;
-	right: 33vw;
+	right: 20vw;
 	z-index: 20;
 	float: right;
-	text-decoration: none;
-	color: black;
 	
 }
+
+.button a{
+	text-decoration: none;
+	color: white;
+	letter-spacing: 40px; 
+	margin-right: -40px;
+}
+
+
 
 .footer{
 background:#DADADA;
