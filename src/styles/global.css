@@ -1,0 +1,230 @@
+@charset "utf-8";
+/* CSS Document */
+
+@font-face {
+	font-family: 'Druk Wide Bold';
+	font-weight: 700;
+	font-style: normal;
+	src: url(/fonts/Inter-roman.var.woff2) format("woff2");
+}
+
+
+html {
+	scroll-behavior: smooth;
+}
+
+
+* {
+	margin: 0;
+	padding: 0;
+
+
+
+	-webkit-transition-property: all;
+	-webkit-transition-duration: .9s;
+	-moz-transition-timing-function: cubic-bezier(100, 50, 21, 6);
+	-moz-transition-property: all;
+	-moz-transition-timing-function: cubic-bezier(100, 50, 21, 6);
+
+}
+
+
+body {
+	font-family: "Druk Wide Bold";
+	box-sizing: border-box;
+	background-color: #CFE4FF;
+	overflow-x: hidden;
+}
+
+
+
+
+
+
+.menu {
+	background-color: black;
+	padding: 00px 0;
+	text-align: center;
+	z-index: 3;
+	position: fixed;
+	width: 100vw;
+	display: grid;
+	grid-template-columns: auto auto auto;
+	gap: 10px;
+
+
+
+}
+
+.btn {
+	color: #fff;
+	background: rgba(0, 0, 0);
+	padding: 10px 20px;
+	text-decoration: none;
+	letter-spacing: 2px;
+	font-size: 14px;
+	text-transform: uppercase;
+}
+
+.btn:hover {
+	border: none;
+	background: rgba(0, 0, 0, 0.4);
+	background: #fff;
+	padding: 20px 20px #000;
+	color: black;
+
+}
+
+
+
+
+
+.menu_items {
+	padding: 25px;
+}
+
+
+.menu_social img {
+	height: 30px;
+	padding: 20px 10px;
+
+}
+
+.menu_logo img {
+	padding: 5px;
+	height: 60px;
+}
+
+
+
+
+
+
+.logok {
+	position: fixed;
+	z-index: 40;
+	display: grid;
+	grid-template-columns: auto auto auto;
+	left: 30px;
+	bottom: 20px;
+	;
+}
+
+.logok img {
+	height: 30px;
+	padding: 10px;
+	background-color: white;
+}
+
+.logok img:hover {
+	filter: invert();
+
+}
+
+#hero {
+	margin: 0;
+	padding: 0;
+	height: 100vh;
+	overflow: visible;
+	overflow-x: hidden;
+
+	background-color: #CFE4FF;
+}
+
+.hero_logo {
+
+	left: 0;
+	height: 100vh;
+	position: sticky;
+	top: 0;
+
+	z-index: 0;
+
+}
+
+
+
+
+.date {
+	height: 50px;
+	top: 90vh;
+	margin-bottom: 30vh;
+	position: absolute;
+	float: left;
+	padding-left: 30vw;
+}
+
+.hero_image {
+
+
+
+	height: 80vh;
+	margin-top: -100vh;
+	position: inherit;
+	padding: 15vh 7vw 0 0;
+	float: right;
+	z-index: 1;
+	clear: left;
+
+}
+
+
+#word_cloud {
+	background-color: black;
+	color: white;
+	scroll-snap-align: start;
+	z-index: -9;
+
+}
+
+.word_cloud {
+	background-color: black;
+	height: 60vh;
+	width: 100vw;
+
+	display: block;
+	float: right;
+	padding: 0;
+	margin: 0;
+	text-align: right;
+	z-index: -9;
+}
+
+
+.artists {
+	width: 50vw;
+	float: right;
+	padding: 5vw;
+	color: #CFE4FF;
+	font-size: 20px;
+	text-align: center;
+}
+
+.artists a {
+	margin: 10px;
+	text-decoration: none;
+	color: white;
+	line-height: 30px;
+	white-space: nowrap;
+
+}
+
+.artists a:hover {
+	background-color: white;
+	color: black;
+}
+
+
+
+.button img {
+
+	width: 20px;
+	position: relative;
+	margin-top: 88vh;
+	right: 33vw;
+	z-index: 20;
+	float: right;
+	text-decoration: none;
+	color: black;
+
+}
