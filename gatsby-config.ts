@@ -1,8 +1,21 @@
 import type { GatsbyConfig } from "gatsby";
+import { config as configDotenv } from 'dotenv'
+
+configDotenv({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
+const strapiConfig = {
+  apiURL: process.env.STRAPI_API_URL,
+  accessToken: process.env.STRAPI_TOKEN,
+  collectionTypes: [],
+  singleTypes: []
+};
+
 
 const config: GatsbyConfig = {
   siteMetadata: {
-    title: `Bluesfeszt`,
+    title: `Veszprém Blues Fesztivál`,
     siteUrl: `https://www.yourdomain.tld`
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
@@ -36,7 +49,23 @@ const config: GatsbyConfig = {
       "path": "./src/pages/"
     },
     __key: "pages"
-    }
+    },
+    "gatsby-plugin-dts-css-modules",
+    {
+      resolve: `gatsby-source-strapi`,
+      options: strapiConfig,
+    },
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        // Footnotes mode (default: true)
+        footnotes: true,
+        // GitHub Flavored Markdown mode (default: true)
+        gfm: true,
+        // Plugins configs
+        plugins: [],
+      },
+    },
   ]
 };
 
