@@ -1,15 +1,19 @@
 import React from 'react'
+import Footer from './footer';
+import Navigation from './navigation';
+import { WindowLocation } from "@reach/router"
 
 interface LayoutProps {
-    pageTitle: string;
     children?: React.ReactNode
+    location: WindowLocation
 }
 
-const Layout = ({ pageTitle, children } : LayoutProps) => {
+const Layout = ({ children, location } : LayoutProps) => {
   return (
     <>
-    
+    <Navigation location={location}/>
     <main>{children}</main>
+    <Footer/>
     </>
   )
 }

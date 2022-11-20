@@ -1,0 +1,61 @@
+.wrapper {
+    justify-content: center;
+    height: 100vh;
+}
+
+.hero_logo {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+}
+
+.hero_content {
+    display: flex;
+    flex-direction: column;
+}
+
+.hero {
+    padding: 15vh 0 0 0;
+    margin-bottom: -5vh;
+}
+
+.jegyek {
+    align-self: center;
+    background-color: black;
+    border: 0 solid white;
+    text-decoration: none;
+	color: white;
+	letter-spacing: 40px; 
+    text-indent: 40px;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.75rem;
+    padding: .75rem 1.65rem;
+    width: 100%;
+    max-width: 460px;
+    transform: rotate(-2deg);
+}
+
+.jegyek:focus {
+    outline: 0;
+}
+
+.jegyek:after {
+    content: '';
+    position: absolute;
+    border: 5px solid white;
+    bottom: 4px;
+    left: 4px;
+    width: calc(100% - 1px);
+    height: calc(100% - 1px);
+}
+
+.jegyek:hover:after {
+    bottom: 2px;
+    left: 2px;
+}
+
+.fellepo_wrapper {
+    background-color: black;
+}

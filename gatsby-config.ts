@@ -1,5 +1,6 @@
 import type { GatsbyConfig } from "gatsby";
 import { config as configDotenv } from 'dotenv'
+import { languages, defaultLanguage } from './languages';
 
 configDotenv({
   path: `.env.${process.env.NODE_ENV}`,
@@ -8,8 +9,21 @@ configDotenv({
 const strapiConfig = {
   apiURL: process.env.STRAPI_API_URL,
   accessToken: process.env.STRAPI_TOKEN,
-  collectionTypes: [],
-  singleTypes: []
+  collectionTypes: ['artist', 'news', 'program'],
+  singleTypes: ['common', 
+    {
+      singularName: 'index',
+      queryParams: {
+        populate: {
+          Hero: "*",
+          Logo: "*",
+          Sponsors: {
+            populate: "*"
+          }
+        }
+      }
+    }
+  ]
 };
 
 
@@ -66,6 +80,30 @@ const config: GatsbyConfig = {
         plugins: [],
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/locales`,
+        name: `locale`
+      }
+    },
+    {
+      resolve: 'gatsby-plugin-react-i18next',
+      options: {
+        languages,
+        defaultLanguage,
+        siteUrl: 'https://www.yourdomain.tld',
+        i18nextOptions: {
+          // debug: true,
+          fallbackLng: defaultLanguage,
+          supportedLngs: languages,
+          defaultNS: 'common',
+          interpolation: {
+            escapeValue: false, // not needed for react as it escapes by default
+          }
+        },
+      },
+    }
   ]
 };
 
