@@ -9,7 +9,32 @@ configDotenv({
 const strapiConfig = {
   apiURL: process.env.STRAPI_API_URL,
   accessToken: process.env.STRAPI_TOKEN,
-  collectionTypes: ['artist', 'news', 'program'],
+  collectionTypes: [
+    {
+      singularName: 'artist',
+      pluginOptions: {
+        i18n: {
+          locale: 'all'
+        }
+      }
+    },
+    {
+      singularName: 'news',
+      pluginOptions: {
+        i18n: {
+          locale: 'all'
+        }
+      }
+    },
+    {
+      singularName: 'program',
+      pluginOptions: {
+        i18n: {
+          locale: 'all'
+        }
+      }
+    },
+  ],
   singleTypes: ['common', 
     {
       singularName: 'index',

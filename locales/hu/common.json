@@ -1,7 +1,12 @@
 {
-    "Program": "Program",
-    "Jegyek": "Jegyek",
-    "Helyszín": "Helyszín",
-    "Hírek": "Hírek",
-    "Kapcsolat": "Kapcsolat"
+    "Program": "PROGRAM",
+    "Jegyek": "JEGYEK",
+    "Helyszín": "HELYSZÍN",
+    "Hírek": "HÍREK",
+    "Kapcsolat": "KAPCSOLAT",
+    "ÁSZF": "ÁSZF",
+    "Házirend": "Házirend",
+    "Adatkezelési nyilatkozat": "Adatkezelési nyilatkozat",
+    "Sajtó": "Sajtó",
+    "Szponzorok": "Szponzorok"
 }

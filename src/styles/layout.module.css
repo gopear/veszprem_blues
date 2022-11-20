@@ -28,3 +28,46 @@
     background:#fff;
     color: black;
 }
+
+.navbar_icon_wrapper {
+    background-color: white;
+    border-radius: 50%;
+}
+
+.navbar_icon {
+    height: 40px;
+}
+
+.navbar_lang_switch_item:active {
+    background-color: #CFE4FF;
+    color: black;
+}
+
+.footer_wrapper {
+    background-color: #DADADA;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    z-index: 10;
+}
+
+.footer_row {
+    justify-content: center;
+}
+
+.footer_col {
+    margin-bottom: 0;
+}
+
+.footer_icon_wrapper {
+    background-color: #808080;
+    border-radius: 50%;
+}
+
+.footer_icon {
+    height: 40px;
+    filter: invert(93%) sepia(0%) saturate(0%) hue-rotate(192deg) brightness(99%) contrast(84%);
+}
+
+.footer_links a {
+    color: gray;
+}

@@ -1,7 +1,12 @@
 {
-    "Program": "Program",
-    "Jegyek": "Tickets",
-    "Helyszín": "Location",
-    "Hírek": "News",
-    "Kapcsolat": "Contact"
+    "Program": "PROGRAM",
+    "Jegyek": "TICKETS",
+    "Helyszín": "LOCATION",
+    "Hírek": "NEWS",
+    "Kapcsolat": "CONTACT",
+    "ÁSZF": "Terms and Conditions",
+    "Házirend": "Policy",
+    "Adatkezelési nyilatkozat": "Privacy policy",
+    "Sajtó": "Press",
+    "Szponzorok": "Sponsors"
 }

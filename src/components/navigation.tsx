@@ -1,14 +1,13 @@
 import { graphql, useStaticQuery } from 'gatsby'
-import { GatsbyImage } from 'gatsby-plugin-image'
-import React, { useEffect, useState } from 'react'
-import { Navbar, Container, Nav } from "react-bootstrap"
+import React from 'react'
+import { Navbar, Container, Nav, Stack, DropdownButton, Dropdown } from "react-bootstrap"
 import { WindowLocation } from "@reach/router"
 import { Link, Trans, useI18next } from 'gatsby-plugin-react-i18next'
 import * as styles from "../styles/layout.module.css";
 
 const Navigation = ({ location }: { location: WindowLocation }) => {
 
-  const { languages, originalPath } = useI18next();
+  const { languages, originalPath, language } = useI18next();
 
   const data = useStaticQuery<Queries.HeaderCompQuery>(graphql`
     query HeaderComp {
@@ -58,13 +57,18 @@ const Navigation = ({ location }: { location: WindowLocation }) => {
           </Nav>
           <Nav>
             <Nav.Item>
-            {languages.map((lng) => (
-                <li key={lng}>
-                  <Link to={originalPath} language={lng}>
-                    {lng}
-                  </Link>
-                </li>
-              ))}
+              <Stack direction='horizontal' gap={3}>
+                <a href='#' className={styles.navbar_icon_wrapper}><img alt='Facebook' src={data.strapiCommon!.FacebookIcon!.url!} className={styles.navbar_icon}/></a>
+                <a href='#' className={styles.navbar_icon_wrapper}><img alt='Instagram' src={data.strapiCommon!.InstagramIcon!.url!} className={styles.navbar_icon}/></a>
+                <a href='#' className={styles.navbar_icon_wrapper}><img alt='Youtube' src={data.strapiCommon!.YoutubeIcon!.url!} className={styles.navbar_icon}/></a>
+                <DropdownButton title={language.toUpperCase()} variant={'light'} menuVariant={'dark'}>
+                  {languages.map((lng) => (
+                    <Dropdown.Item as={Link} to={originalPath} language={lng} className={styles.navbar_lang_switch_item}>
+                        {lng.toUpperCase()}
+                    </Dropdown.Item>
+                  ))}
+                </DropdownButton>
+              </Stack>
             </Nav.Item>
           </Nav>
         </Navbar.Collapse>

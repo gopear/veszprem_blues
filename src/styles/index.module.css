@@ -1,6 +1,6 @@
 .wrapper {
     justify-content: center;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .hero_logo {
@@ -8,6 +8,43 @@
     left: 0;
     top: 0;
     height: 100vh;
+}
+
+.hero_logo_col {
+    padding-left: 0;
+    padding-right: 0;
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    justify-content: center;
+    align-content: flex-end;
+    flex-wrap: wrap;
+}
+
+.sponsor_wrapper {
+    z-index: 10;
+    margin-right: 50px;
+}
+
+.sponsor_wrapper a {
+    transition: all .2s ease-in-out;
+}
+
+.sponsor_wrapper img {
+    width: 5rem;
+    padding: 10px;
+    transition: all .2s ease-in-out;
+}
+
+.sponsor_wrapper a:hover {
+    background: black;
+}
+
+.sponsor_wrapper a:hover img {
+    filter: invert();
 }
 
 .hero_content {
@@ -57,5 +94,14 @@
 }
 
 .fellepo_wrapper {
+
+}
+
+.fellepo_wrapper_col {
+    background-color: black;
+}
+
+.placeholder {
+    overflow: hidden;
     background-color: black;
 }
