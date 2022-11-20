@@ -5,13 +5,12 @@ import { WindowLocation } from "@reach/router"
 
 interface LayoutProps {
     children?: React.ReactNode
-    location: WindowLocation
 }
 
-const Layout = ({ children, location } : LayoutProps) => {
+const Layout = ({ children } : LayoutProps) => {
   return (
     <>
-    <Navigation location={location}/>
+    <Navigation/>
     <main>{children}</main>
     <Footer/>
     </>

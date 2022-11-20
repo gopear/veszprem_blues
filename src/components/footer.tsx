@@ -27,8 +27,8 @@ const Footer = () => {
         <Row className={styles.footer_row} style={{marginBottom: 20}}>
           <Col xs={'auto'}>
             <Stack direction='horizontal' gap={4}>
-              <a href='#' className={styles.footer_icon_wrapper}><img alt='Facebook' src={data.strapiCommon!.FacebookIcon!.url!} className={styles.footer_icon}/></a>
-              <a href='#' className={styles.footer_icon_wrapper}><img alt='Instagram' src={data.strapiCommon!.InstagramIcon!.url!} className={styles.footer_icon}/></a>
+              <a href='https://www.facebook.com/veszprembluesfesztival' className={styles.footer_icon_wrapper}><img alt='Facebook' src={data.strapiCommon!.FacebookIcon!.url!} className={styles.footer_icon}/></a>
+              <a href='https://www.instagram.com/veszprembluesfesztival' className={styles.footer_icon_wrapper}><img alt='Instagram' src={data.strapiCommon!.InstagramIcon!.url!} className={styles.footer_icon}/></a>
               <a href='#' className={styles.footer_icon_wrapper}><img alt='Youtube' src={data.strapiCommon!.YoutubeIcon!.url!} className={styles.footer_icon}/></a>
             </Stack>
           </Col>
@@ -36,11 +36,9 @@ const Footer = () => {
         <Row className={styles.footer_row}>
           <Col xs={'auto'}>
             <Stack direction='horizontal' gap={5} className={styles.footer_links}>
-              <Link to='/terms'><Trans>ÁSZF</Trans></Link>
               <Link to='/policy'><Trans>Házirend</Trans></Link>
-              <Link to='/privacy'><Trans>Adatkezelési nyilatkozat</Trans></Link>
-              <Link to='/press'><Trans>Sajtó</Trans></Link>
-              <Link to='/sponsors'><Trans>Szponzorok</Trans></Link>
+              <Link to='/terms'><Trans>ÁSZF</Trans></Link>
+              <Link to='/contact'><Trans>Impresszum</Trans></Link>
             </Stack>
           </Col>
         </Row>

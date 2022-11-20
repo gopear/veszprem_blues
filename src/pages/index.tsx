@@ -5,11 +5,12 @@ import { SEO } from "../components/seo"
 import { Link, Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import { Button, Col, Container, Row, Stack } from "react-bootstrap";
 import * as styles from "../styles/index.module.css"
+import { BsDiamondFill } from 'react-icons/bs'
 
 const IndexPage = ({ location, data } : PageProps<Queries.IndexPageQuery>) => {
 
   return (
-    <Layout location={location}>
+    <Layout>
       <Container fluid>
         <Row className={styles.wrapper}>
           <Col xs={5} className={styles.hero_logo_col}>
@@ -27,15 +28,33 @@ const IndexPage = ({ location, data } : PageProps<Queries.IndexPageQuery>) => {
             <button className={styles.jegyek}><Trans>Jegyek</Trans></button>
           </Col>
         </Row>
-        <Row>
-          <Col xs={5} className={styles.placeholder}>
+        <Row className={styles.content_wrapper}>
+          <Col xs={5}>
           </Col>
           <Col xs={7} className={styles.fellepo_wrapper_col}>
-            {data.allStrapiArtist.nodes.map(artist => (
-              <p>
-                {artist.Name!}
-              </p>
-            ))}
+            <Stack direction="horizontal" gap={4} className={`${styles.fellepo_stack} ${styles.eng_artist}`}>
+              <Link to={data.allStrapiArtist.nodes[0].Slug!}>{data.allStrapiArtist.nodes[0].Name!}</Link>
+              <BsDiamondFill color="#CFE4FF"/>
+              <Link to={data.allStrapiArtist.nodes[1].Slug!}>{data.allStrapiArtist.nodes[1].Name!}</Link>
+            </Stack>
+            <Stack direction="horizontal" gap={4} className={`${styles.fellepo_stack} ${styles.eng_artist}`}>
+              <Link to={data.allStrapiArtist.nodes[2].Slug!}>{data.allStrapiArtist.nodes[2].Name!}</Link>
+              <BsDiamondFill color="#CFE4FF"/>
+              <Link to={data.allStrapiArtist.nodes[3].Slug!}>{data.allStrapiArtist.nodes[3].Name!}</Link>
+            </Stack>
+            <Stack direction="horizontal" gap={4} className={`${styles.fellepo_stack} ${styles.eng_artist}`}>
+              <Link to={data.allStrapiArtist.nodes[4].Slug!}>{data.allStrapiArtist.nodes[4].Name!}</Link>
+              <BsDiamondFill color="#CFE4FF"/>
+              <Link to={data.allStrapiArtist.nodes[5].Slug!}>{data.allStrapiArtist.nodes[5].Name!}</Link>
+            </Stack>
+            <Link to={data.allStrapiArtist.nodes[6].Slug!} className={styles.eng_artist}>{data.allStrapiArtist.nodes[6].Name!}</Link>
+            <svg className={styles.sep} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 573.84 12.93"><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><polygon id="LINE" points="14.2 12.42 0 0 562.62 0.26 573.84 12.93 14.2 12.42" style={{fill: "#fff"}} /></g></g></svg>
+            <Link to={data.allStrapiArtist.nodes[7].Slug!} className={styles.hun_artist}>{data.allStrapiArtist.nodes[7].Name!}</Link>
+            <Stack direction="horizontal" gap={4} className={`${styles.fellepo_stack} ${styles.hun_artist}`}>
+              <Link to={data.allStrapiArtist.nodes[8].Slug!}>{data.allStrapiArtist.nodes[8].Name!}</Link>
+              <BsDiamondFill color="#CFE4FF"/>
+              <Link to={data.allStrapiArtist.nodes[9].Slug!}>{data.allStrapiArtist.nodes[9].Name!}</Link>
+            </Stack>
           </Col>
           
         </Row>
@@ -72,6 +91,9 @@ export const query = graphql`
       Logo {
         url
       }
+      LogoMobile {
+        url
+      }
       Sponsors {
         Link
         Logo {
@@ -79,7 +101,10 @@ export const query = graphql`
         }
       }
     }
-    allStrapiArtist(filter: {locale: {eq: $language}}) {
+    allStrapiArtist(
+      filter: {locale: {eq: $language}, OrderOnFrontPage: {gt: 0}}
+      sort: {OrderOnFrontPage: ASC}
+    ) {
       nodes {
         Slug
         Name
