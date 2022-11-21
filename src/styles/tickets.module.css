@@ -1,0 +1,12 @@
+.wrapper_row {
+    padding-top: 5vh;
+    justify-content: space-evenly;
+}
+
+.wrapper_row:nth-child(1) {
+    padding-top: 15vh;
+}
+
+.wrapper_row:last-child {
+    padding-bottom: 5vh;
+}

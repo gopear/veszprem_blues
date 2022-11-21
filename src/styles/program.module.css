@@ -1,0 +1,40 @@
+.main_wrapper {
+    display: grid;
+    padding-top: 15vh;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 2vw;
+    width: 70%;
+    margin: auto;
+}
+
+.artist_wrapper {
+    padding: 70px 30px 60px 40px;
+    clip-path: polygon(0 0, 100% 7%, 100% 100%, 0 93%);
+    background-color: white;
+    background-repeat: no-repeat;
+    width: 100%;
+}
+
+.artist_img_wrapper {
+    clip-path: polygon(0 0, 100% 0, 95% 100%, 0 93%);
+    background-color: black;
+}
+
+.artist_image {
+    clip-path: polygon(0 0, 100% 0, 100% 60%, 0 60%);
+}
+
+.artist_name {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 300px;
+    
+    color: white;
+}
+
+/* .artist_name h4 {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+} */
