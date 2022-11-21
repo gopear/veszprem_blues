@@ -42,7 +42,6 @@ const strapiConfig = {
         populate: {
           Hero: "*",
           Logo: "*",
-          LogoMobile: "*",
           Sponsors: {
             populate: "*"
           }

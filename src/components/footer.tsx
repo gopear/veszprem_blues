@@ -34,12 +34,14 @@ const Footer = () => {
           </Col>
         </Row>
         <Row className={styles.footer_row}>
-          <Col xs={'auto'}>
-            <Stack direction='horizontal' gap={5} className={styles.footer_links}>
-              <Link to='/policy'><Trans>Házirend</Trans></Link>
-              <Link to='/terms'><Trans>ÁSZF</Trans></Link>
-              <Link to='/contact'><Trans>Impresszum</Trans></Link>
-            </Stack>
+          <Col xs={12} lg={2} className={styles.footer_links}>
+            <Link to='/policy'><Trans>Házirend</Trans></Link>
+          </Col>
+          <Col xs={12} lg={2} className={styles.footer_links}>
+            <Link to='/terms'><Trans>ÁSZF</Trans></Link>
+          </Col>
+          <Col xs={12} lg={2} className={styles.footer_links}>
+            <Link to='/contact'><Trans>Impresszum</Trans></Link>
           </Col>
         </Row>
     </Container>

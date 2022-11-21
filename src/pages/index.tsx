@@ -6,14 +6,15 @@ import { Link, Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import { Button, Col, Container, Row, Stack } from "react-bootstrap";
 import * as styles from "../styles/index.module.css"
 import { BsDiamondFill } from 'react-icons/bs'
+import { useEffect } from "react";
 
-const IndexPage = ({ location, data } : PageProps<Queries.IndexPageQuery>) => {
+const IndexPage = ({ data } : PageProps<Queries.IndexPageQuery>) => {
 
   return (
     <Layout>
       <Container fluid>
         <Row className={styles.wrapper}>
-          <Col xs={5} className={styles.hero_logo_col}>
+          <Col xs={12} xxl={6} className={styles.hero_logo_col}>
             <img src={data.strapiIndex!.Logo!.url!} alt='Hero logo' className={styles.hero_logo}/>
             <Stack direction="horizontal" className={styles.sponsor_wrapper}>
                 {data.strapiIndex?.Sponsors?.map(s => (
@@ -23,15 +24,13 @@ const IndexPage = ({ location, data } : PageProps<Queries.IndexPageQuery>) => {
                 ))}
             </Stack>
           </Col>
-          <Col xs={{span: 6, offset: 5}} className={styles.hero_content} >
+          <Col xs={12} md={10} xxl={{ span: 6, offset: 5 }} className={styles.hero_content} >
             <img src={data.strapiIndex!.Hero!.url!} alt='Hero' className={styles.hero}/>
             <button className={styles.jegyek}><Trans>Jegyek</Trans></button>
           </Col>
         </Row>
         <Row className={styles.content_wrapper}>
-          <Col xs={5}>
-          </Col>
-          <Col xs={7} className={styles.fellepo_wrapper_col}>
+          <Col xs={12} xxl={{span: 7, offset: 5}} className={styles.fellepo_wrapper_col}>
             <Stack direction="horizontal" gap={4} className={`${styles.fellepo_stack} ${styles.eng_artist}`}>
               <Link to={data.allStrapiArtist.nodes[0].Slug!}>{data.allStrapiArtist.nodes[0].Name!}</Link>
               <BsDiamondFill color="#CFE4FF"/>
@@ -89,9 +88,6 @@ export const query = graphql`
         url
       }
       Logo {
-        url
-      }
-      LogoMobile {
         url
       }
       Sponsors {
