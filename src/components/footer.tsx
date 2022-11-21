@@ -18,6 +18,9 @@ const Footer = () => {
         InstagramIcon {
           url
         }
+        ASZF {
+          url
+        }
       }
     }
   `)
@@ -38,7 +41,8 @@ const Footer = () => {
             <Link to='/policy'><Trans>Házirend</Trans></Link>
           </Col>
           <Col xs={12} lg={2} className={styles.footer_links}>
-            <Link to='/terms'><Trans>ÁSZF</Trans></Link>
+            {/* <Link to='/terms'><Trans>ÁSZF</Trans></Link> */}
+            <a href={data.strapiCommon!.ASZF!.url!} download><Trans>ÁSZF</Trans></a>
           </Col>
           <Col xs={12} lg={2} className={styles.footer_links}>
             <Link to='/contact'><Trans>Impresszum</Trans></Link>
