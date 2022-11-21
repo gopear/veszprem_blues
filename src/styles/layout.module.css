@@ -122,6 +122,10 @@
     clip-path: polygon(0 0, 100% 10%, 100% 100%, 0 90%);
 }
 
+.ticket_day {
+    margin: 20px;
+}
+
 .ticket_inactive {
     filter: invert(42%) sepia(5%) saturate(0%) hue-rotate(177deg) brightness(96%) contrast(86%);
 }
@@ -140,11 +144,13 @@
     padding: .90rem 1.65rem;
     max-width: 460px;
     transform: rotate(-2deg);
+    text-decoration: none;
 }
 
 
-.ticket_btn:focus {
+.ticket_btn:focus, .ticket_btn:hover {
     outline: 0;
+    color: black;
 }
 
 .ticket_btn:after {

@@ -7,12 +7,10 @@ import { SEO } from '../components/seo'
 import * as styles from "../styles/program.module.css"
 import { useEffect } from 'react';
 import { navigate } from "@reach/router"
+import { useI18next } from 'gatsby-plugin-react-i18next'
 
 
 const Program = ({ data }: PageProps<Queries.ProgramPageQuery>) => {
-  useEffect(() => {
-    navigate('/404/');
-  }, []);
   return null;
   return (
     <Layout>
