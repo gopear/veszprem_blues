@@ -18,8 +18,7 @@
     flex-direction: row;
     height: 100vh;
     justify-content: center;
-    align-items: center;
-    align-content: center;
+    align-items: flex-end;
     flex-wrap: wrap;
     clip-path: polygon(0 0, 100% 0, 75% 100%, 0% 100%);
 }
@@ -118,11 +117,11 @@
 }
 
 .eng_artist {
-    font-size: 30px;
+    font-size: 26px;
 }
 
 .hun_artist {
-    font-size: 24px;
+    font-size: 20px;
 }
 
 
@@ -141,13 +140,13 @@
 }
 
 
-@media (max-width: 1500px) {
+@media (max-width: 1650px) {
     .eng_artist {
-        font-size: 24px;
+        font-size: 20px;
     }
 
     .hun_artist {
-        font-size: 20px;
+        font-size: 16px;
     }
 
     .sep {
@@ -155,7 +154,22 @@
     }
 }
 
-@media (max-width: 1400px) {
+
+@media (max-width: 1300px) {
+    .eng_artist {
+        font-size: .9rem;
+    }
+
+    .hun_artist {
+        font-size: .8rem;
+    }
+
+    .sep {
+        width: 500px;
+    }
+}
+
+@media (max-width: 992px) {
     .hero_logo {
         position: inherit;
         height: 50vh;
@@ -169,13 +183,13 @@
         flex-direction: column;
         align-content: center;
         padding: inherit;
-        padding-top: 10vh;
+        padding-top: 20vw;
         padding-bottom: 12vh;
     }
 
     .jegyek {
         order: 1;
-        margin-bottom: 50px;
+        margin: 50px 0;
     }
 
     .hero {
@@ -186,6 +200,14 @@
     .sponsor_wrapper {
         margin-right: inherit;
         align-self: center;
+    }
+
+    .eng_artist {
+        font-size: 1.3rem;
+    }
+
+    .hun_artist {
+        font-size: 1rem;
     }
 
     .sep {
@@ -203,20 +225,26 @@
     .jegyek {
         letter-spacing: 24px;
         text-indent: 24px;
+        padding: .75em 1.65em;
     }
 
     .eng_artist {
-        font-size: 16px;
+        font-size: .9rem;
     }
 
     .hun_artist {
-        font-size: 12px;
+        font-size: .9rem;
     }
 }
 
 @media (max-width: 576px) {
-    .eng_artist {
+    .jegyek { 
         font-size: 12px;
+        letter-spacing: 10px;
+        text-indent: 10px;
+    }
+    .eng_artist {
+        font-size: .6rem;
     }
 
     .hun_artist {

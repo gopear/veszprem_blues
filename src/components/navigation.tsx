@@ -30,7 +30,7 @@ const Navigation = () => {
   `)
 
   return (
-    <Navbar fixed={'top'} expand='xxl' className={styles.navbar_wrapper}>
+    <Navbar fixed={'top'} expand='lg' className={styles.navbar_wrapper}>
       <Container fluid>
         <Navbar.Brand>
           <Link to='/'>
@@ -78,9 +78,9 @@ const Navigation = () => {
             <Nav.Item>
               <a href='https://www.facebook.com/veszprembluesfesztival' className={styles.navbar_icon_wrapper}><img alt='Instagram' src={data.strapiCommon!.InstagramIcon!.url!} className={styles.navbar_icon} /></a>
             </Nav.Item>
-            <Nav.Item>
+            {/* <Nav.Item>
               <a href='#' className={styles.navbar_icon_wrapper}><img alt='Youtube' src={data.strapiCommon!.YoutubeIcon!.url!} className={styles.navbar_icon} /></a>
-            </Nav.Item>
+            </Nav.Item> */}
           </Nav>
         </Navbar.Collapse>
       </Container>

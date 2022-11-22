@@ -21,9 +21,12 @@ const Footer = () => {
         ASZF {
           url
         }
+        Hazirend {
+          url
+        }
       }
     }
-  `)
+  `) 
 
   return (
     <Container as="footer" fluid className={styles.footer_wrapper}>
@@ -38,7 +41,8 @@ const Footer = () => {
         </Row>
         <Row className={styles.footer_row}>
           <Col xs={12} lg={2} className={styles.footer_links}>
-            <Link to='/policy'><Trans>Házirend</Trans></Link>
+            {/* <Link to='/policy'><Trans>Házirend</Trans></Link> */}
+            <a href={data.strapiCommon!.Hazirend!.url!} download><Trans>Házirend</Trans></a>
           </Col>
           <Col xs={12} lg={2} className={styles.footer_links}>
             {/* <Link to='/terms'><Trans>ÁSZF</Trans></Link> */}

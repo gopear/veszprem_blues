@@ -82,8 +82,14 @@ a {
 	position: absolute;
 }
 
+/* .list-inline .list-inline-item:not(:last-child):after {
+    content: " ◆ ";
+    color: #CFE4FF;
+}
+ */
 
-@media (max-width: 1399px) {
+
+@media (max-width: 991px) {
     .navbar-collapse {
         display: flex;
         position: absolute;

@@ -86,24 +86,6 @@
     color: gray;
 }
 
-@media (max-width: 1399px) {
-
-    .navbar_menu_wrapper {
-        margin-top: auto;
-        margin-bottom: auto;
-    }
-
-    .navbar_lang_switch_wrapper {
-        order: 0;
-        margin-left: auto;
-        margin-right: 1rem;
-    }
-
-    .navbar_social_wrapper {
-        flex-direction: row;
-        margin-bottom: 50px;
-    }
-}
 
 .ticket_base {
     margin: 5px;
@@ -169,6 +151,9 @@
     left: 2px;
 }
 
+
+
+
 @media (max-width: 1650px) {
     .ticket_btn {
         letter-spacing: 5px;
@@ -176,8 +161,48 @@
     }
 }
 
+@media (max-width: 1399px) {
+    .navbar_wrapper {
+        padding: 10px 0;
+    }
+
+    .navbar_menu_wrapper a {
+        font-size: .9rem;
+    }
+}
+
+@media (max-width: 991px) {
+
+    .navbar_menu_wrapper {
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+
+    .navbar_lang_switch_wrapper {
+        order: 0;
+        margin-left: auto;
+        margin-right: 1rem;
+    }
+
+    .navbar_social_wrapper {
+        flex-direction: row;
+        margin-bottom: 50px;
+    }
+
+    .navbar_menu_wrapper a {
+        font-size: 1.1rem;
+    }
+
+    .navbar_wrapper {
+        padding: 10px 10%;
+    }
+}
+
+
 @media (max-width: 767px) {
     .ticket_btn {
         text-indent: 24px;
     }
 }
+
+
