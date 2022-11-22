@@ -54,12 +54,13 @@ const IndexPage = ({ data } : PageProps<Queries.IndexPageQuery>) => {
               <BsDiamondFill color="#CFE4FF"/>
               <Link to={data.allStrapiArtist.nodes[5].Slug!}>{data.allStrapiArtist.nodes[5].Name!}</Link>
             </Stack>
+            <Link to={data.allStrapiArtist.nodes[6].Slug!} className={styles.eng_artist}>{data.allStrapiArtist.nodes[6].Name!}</Link>
             <svg className={styles.sep} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 573.84 12.93"><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><polygon id="LINE" points="14.2 12.42 0 0 562.62 0.26 573.84 12.93 14.2 12.42" style={{fill: "#fff"}} /></g></g></svg>
-            <Link to={data.allStrapiArtist.nodes[6].Slug!} className={styles.hun_artist}>{data.allStrapiArtist.nodes[6].Name!}</Link>
+            <Link to={data.allStrapiArtist.nodes[7].Slug!} className={styles.hun_artist}>{data.allStrapiArtist.nodes[7].Name!}</Link>
             <Stack direction="horizontal" gap={4} className={`${styles.fellepo_stack} ${styles.hun_artist}`}>
-              <Link to={data.allStrapiArtist.nodes[7].Slug!} className={styles.hun_artist}>{data.allStrapiArtist.nodes[7].Name!}</Link>
+              <Link to={data.allStrapiArtist.nodes[8].Slug!} >{data.allStrapiArtist.nodes[8].Name!}</Link>
               <BsDiamondFill color="#CFE4FF"/>
-              <Link to={data.allStrapiArtist.nodes[8].Slug!}>{data.allStrapiArtist.nodes[8].Name!}</Link>
+              <Link to={data.allStrapiArtist.nodes[9].Slug!}>{data.allStrapiArtist.nodes[9].Name!}</Link>
             </Stack>
           </Col>
           
