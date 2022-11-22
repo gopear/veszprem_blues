@@ -12,30 +12,11 @@ const Jegyek = ({ data }: PageProps<Queries.TicketsPageQuery>) => {
       <Container fluid>
         <Row>
           <Col xs={12} className={styles.wrapper}>
-            <Ticket title='EARLY BIRD'  day='bérlet'    price='25 000' isPass={true} />
-            <Ticket title='ELŐVÉTEL'    day='bérlet'    price='35 000' isPass={true} inactive={true} />
-            <Ticket title='TELJES ÁR'   day='bérlet'    price='40 000' isPass={true} inactive={true} />
-            <Ticket title='EARLY BIRD'  day='csütörtök' price='8 500' />
-            <Ticket title='EARLY BIRD'  day='péntek'    price='8 500' />
-            <Ticket title='EARLY BIRD'  day='szombat'   price='8 500'  />
-            <Ticket title='EARLY BIRD'  day='vasárnap'  price='8 500' />
-            <Ticket title='ELŐVÉTEL'    day='napijegy'  price='12 000' inactive={true}/>
-            <Ticket title='TELJES ÁR'   day='napijegy'  price='15 000' inactive={true}/>
+            {data.strapiTicket!.Ticket!.map(ticket => (
+              <Ticket key={ticket!.id} title={ticket!.Name!} day={ticket!.Type!} price={ticket!.Price!} inactive={!ticket!.Available!} isPass={ticket!.Type! === 'bérlet'} />
+            ))}
           </Col>
         </Row>
-        
-        {/* <Row className={styles.wrapper_row}>
-          <Ticket title='EARLY BIRD' day='bérlet' price='25 000' isPass={true} />
-          <Ticket title='ELŐVÉTELES' day='bérlet' price='35 000' isPass={true} inactive={true} />
-          <Ticket title='TELJES ÁRÚ' day='bérlet' price='40 000' isPass={true} inactive={true} />
-        </Row>
-        <Row className={styles.wrapper_row}>
-          <Ticket title='EARLY BIRD' day='csütörtök'  price='8 500' />
-          <Ticket title='EARLY BIRD' day='péntek'     price='8 500' />
-          <Ticket title='EARLY BIRD' day='szombat'    price='8 500'  />
-          <Ticket title='EARLY BIRD' day='vasárnap'   price='8 500' />
-        </Row> */}
-         
       </Container>
     </Layout>
   )
@@ -59,6 +40,15 @@ query TicketsPage($language: String!) {
         data
         language
       }
+    }
+  }
+  strapiTicket {
+    Ticket {
+      id
+      Available
+      Name
+      Price
+      Type
     }
   }
 }

@@ -35,7 +35,7 @@ const strapiConfig = {
       }
     },
   ],
-  singleTypes: ['common', 
+  singleTypes: ['common', 'ticket',
     {
       singularName: 'index',
       queryParams: {
@@ -44,10 +44,13 @@ const strapiConfig = {
           Logo: "*",
           Sponsors: {
             populate: "*"
+          },
+          Artists: {
+            populate: "*"
           }
         }
       }
-    }
+    },
   ]
 };
 

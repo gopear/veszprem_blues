@@ -30,12 +30,11 @@ const IndexPage = ({ data } : PageProps<Queries.IndexPageQuery>) => {
         <Row className={styles.content_wrapper}>
           <Col xs={12} lg={{span: 7, offset: 5}} className={styles.fellepo_wrapper_col}>
             <ul>
-              {data.allStrapiArtist.nodes.map(artist => (
-                <li><Link to={artist.Slug!}>{artist.Name!}</Link></li>
+              {data.strapiIndex!.Artists!.map(artist => (
+                <li key={artist!.Artist!.Slug!}><Link to={`/artist/${artist!.Artist!.Slug!}`}>{artist!.Artist!.Name!}</Link></li>
               ))}
             </ul>
           </Col>
-          
         </Row>
       </Container>
     </Layout>
@@ -73,15 +72,11 @@ query IndexPage($language: String!) {
         url
       }
     }
-  }
-  allStrapiArtist(
-    filter: {locale: {eq: $language}, OrderOnFrontPage: {gt: 0}}
-    sort: {OrderOnFrontPage: ASC}
-  ) {
-    nodes {
-      Slug
-      Name
-      Nationality
+    Artists {
+      Artist {
+        Name
+        Slug
+      }
     }
   }
 }
