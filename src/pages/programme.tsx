@@ -83,7 +83,7 @@ query ProgrammePage($language: String!) {
       }
     }
   }
-  wip:file(name: {eq: "vbf_underconstruction"}) {
+  wip:file(name: {eq: "vbf_underconstruction"}, sourceInstanceName: {eq: $language}) {
     publicURL
   }
 }

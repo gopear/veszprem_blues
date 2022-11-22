@@ -35,7 +35,7 @@ query NewsPage($language: String!) {
   seo: locale(language: {eq: $language}, ns: {eq: "news"}) {
     data
   }
-  wip:file(name: {eq: "vbf_underconstruction"}) {
+  wip:file(name: {eq: "vbf_underconstruction"}, sourceInstanceName: {eq: $language}) {
     publicURL
   }
 }

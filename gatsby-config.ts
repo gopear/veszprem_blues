@@ -82,6 +82,22 @@ const config: GatsbyConfig = {
       __key: "assets"
     },
     {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        "name": "hu",
+        "path": "./src/assets_loc/hu/"
+      },
+      __key: "hu"
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        "name": "en",
+        "path": "./src/assets_loc/en/"
+      },
+      __key: "en"
+    },
+    {
     resolve: 'gatsby-source-filesystem',
     options: {
       "name": "pages",
