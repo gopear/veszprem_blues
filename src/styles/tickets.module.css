@@ -1,12 +1,32 @@
-.wrapper_row {
-    padding-top: 5vh;
-    justify-content: space-evenly;
-}
-
-.wrapper_row:nth-child(1) {
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1vw;
+    margin-left: auto;
+    margin-right: auto;
     padding-top: 15vh;
+    padding-bottom: 5vh;
+    width: 75%;
 }
 
-.wrapper_row:last-child {
-    padding-bottom: 5vh;
+@media (max-width: 1400px) {
+    .wrapper {
+        width: 90%;
+    }
+}
+
+@media (max-width: 1200px) {
+    .wrapper {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 766px) {
+    .wrapper {
+        grid-template-columns: 1fr;
+        gap: 5vw;
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+    }
 }

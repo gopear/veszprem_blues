@@ -13,14 +13,18 @@ interface TicketProps {
 
 const Ticket = ({ title, day, price, isPass = false, inactive = false } : TicketProps) => {
   return (
-    <Col xs={12} md={5} xxl={2} className={`${styles.ticket_base} ${isPass ? styles.ticket_pass : styles.ticket_day} ${inactive ? styles.ticket_inactive : ''}`}>
-        <span>
+    // <Col xs={12} md={5} xxl={2} className={`${styles.ticket_base} ${isPass ? styles.ticket_pass : styles.ticket_day} ${inactive ? styles.ticket_inactive : ''}`}>
+    <div className={styles.ticket_wrapper}>
+      <div className={`${styles.ticket_base} ${isPass ? styles.ticket_pass : styles.ticket_day} ${inactive ? styles.ticket_inactive : ''}`}>
+        <span className={styles.ticket_title}>
             <h3><Trans>{title}</Trans></h3>
-            <h2><Trans>{day}</Trans></h2>
+            <h4><Trans>{day}</Trans></h4>
         </span>
-        <h2>{price} HUF</h2>
+        <h4 className={styles.ticket_price}>{price} HUF</h4>
         <a className={styles.ticket_btn} href='https://cooltix.hu/event/637b299999c9e71b0efafb4e' style={{pointerEvents: inactive ? 'none' : 'inherit'}}><Trans>MEGVESZEM</Trans></a>
-    </Col>
+      </div>
+    </div>
+    // </Col>
   )
 }
 
