@@ -56,13 +56,13 @@ const Navigation = () => {
         <Navbar.Collapse id='responsive-navbar-nav' className={!collapsed ? 'show' : ''} >
           <Nav className={styles.navbar_menu_wrapper}>
             <Nav.Item>
-              <Link to='/program'><Trans>Program</Trans></Link>
+              <Link to='/programme'><Trans>Program</Trans></Link>
             </Nav.Item>
             <Nav.Item>
               <Link to='/tickets'><Trans>Jegyek</Trans></Link>
             </Nav.Item>
             <Nav.Item>
-              <Link to='/location'><Trans>Helyszín</Trans></Link>
+              <Link to='/venue'><Trans>Helyszín</Trans></Link>
             </Nav.Item>
             <Nav.Item>
               <Link to='/news'><Trans>Hírek</Trans></Link>

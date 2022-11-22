@@ -71,48 +71,45 @@ const IndexPage = ({ data } : PageProps<Queries.IndexPageQuery>) => {
 
 export default IndexPage
 
-export const Head = ({ data } : HeadProps<Queries.IndexPageQuery>) => {
-  const t = data.locales.edges.filter(n => n.node.ns === 'index')
-  return (
-    <SEO title={t.length > 0 ? JSON.parse(t[0].node.data!).seo : undefined}/>
-  )
-}
-
+export const Head = ({ data } : HeadProps<Queries.IndexPageQuery>) => <SEO title={JSON.parse(data.seo!.data!).seo}/>
 
 export const query = graphql`
-  query IndexPage($language: String!) {
-    locales: allLocale(filter: {language: {eq: $language}}) {
-      edges {
-        node {
-          ns
-          data
-          language
-        }
-      }
-    }
-    strapiIndex {
-      Hero {
-        url
-      }
-      Logo {
-        url
-      }
-      Sponsors {
-        Link
-        Logo {
-          url
-        }
-      }
-    }
-    allStrapiArtist(
-      filter: {locale: {eq: $language}, OrderOnFrontPage: {gt: 0}}
-      sort: {OrderOnFrontPage: ASC}
-    ) {
-      nodes {
-        Slug
-        Name
-        Nationality
+query IndexPage($language: String!) {
+  locales: allLocale(filter: {language: {eq: $language}}) {
+    edges {
+      node {
+        ns
+        data
+        language
       }
     }
   }
+  seo: locale(language: {eq: $language}, ns: {eq: "index"}) {
+    data
+  }
+  strapiIndex {
+    Hero {
+      url
+    }
+    Logo {
+      url
+    }
+    Sponsors {
+      Link
+      Logo {
+        url
+      }
+    }
+  }
+  allStrapiArtist(
+    filter: {locale: {eq: $language}, OrderOnFrontPage: {gt: 0}}
+    sort: {OrderOnFrontPage: ASC}
+  ) {
+    nodes {
+      Slug
+      Name
+      Nationality
+    }
+  }
+}
 `;

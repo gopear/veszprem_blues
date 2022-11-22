@@ -6,10 +6,15 @@ import Layout from '../components/layout'
 import { SEO } from '../components/seo'
 import * as styles from "../styles/program.module.css"
 
-const Program = ({ data }: PageProps<Queries.ProgramPageQuery>) => {
+const Programme = ({ data }: PageProps<Queries.ProgrammePageQuery>) => {
   return (
     <Layout>
-      
+      <Container>
+        <Row style={{justifyContent: 'center', paddingTop: '10vh', 'paddingBottom': '3vh', paddingLeft: '5%', paddingRight: '5%'}}>
+          <Col xs={12} style={{backgroundImage: `url(${data.wip!.publicURL!})`, height: '80vh', width: '100%', backgroundRepeat: 'no-repeat', backgroundSize: 'fit', backgroundPosition: 'center'}}>
+          </Col>
+        </Row>
+      </Container>
     </Layout>
   )
   return (
@@ -40,19 +45,12 @@ const Program = ({ data }: PageProps<Queries.ProgramPageQuery>) => {
   )
 }
 
-export default Program
+export default Programme
 
-export const Head = ({ data }: HeadProps<Queries.ProgramPageQuery>) => {
-  const t = data.locales.edges.filter(n => n.node.ns === 'program')
-  return (
-    <SEO title={t.length > 0 ? JSON.parse(t[0].node.data!).seo : undefined} />
-  )
-}
-
-
+export const Head = ({ data }: HeadProps<Queries.ProgrammePageQuery>) => <SEO title={JSON.parse(data.seo!.data!).seo}/>
 
 export const query = graphql`
-query ProgramPage($language: String!) {
+query ProgrammePage($language: String!) {
   locales: allLocale(filter: {language: {eq: $language}}) {
     edges {
       node {
@@ -61,6 +59,9 @@ query ProgramPage($language: String!) {
         language
       }
     }
+  }
+  seo: locale(language: {eq: $language}, ns: {eq: "programme"}) {
+    data
   }
   allStrapiArtist(filter: {locale: {eq: $language}}, sort: {Name: ASC}) {
     nodes {
@@ -82,7 +83,7 @@ query ProgramPage($language: String!) {
       }
     }
   }
-  frame:file(name: {eq: "ARTIST_CONTAINER"}) {
+  wip:file(name: {eq: "vbf_underconstruction"}) {
     publicURL
   }
 }
