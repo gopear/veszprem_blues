@@ -64,8 +64,8 @@
     background-color: black;
     border: 0 solid white;
     text-decoration: none;
-	color: white;
-	letter-spacing: 40px; 
+    color: white;
+    letter-spacing: 40px;
     text-indent: 40px;
     font-size: 1em;
     font-weight: 700;
@@ -104,11 +104,24 @@
     background-color: black;
 }
 
-.fellepo_wrapper_col {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: black;
+.fellepo_wrapper_col ul {
+    padding: 0;
+    text-align: center;
+}
+
+.fellepo_wrapper_col li {
+    display: inline;
+    font-size: 1.7vw;
+}
+
+.fellepo_wrapper_col li a {
+    white-space: pre;
+}
+
+.fellepo_wrapper_col li:after {
+    content: " ";
+    letter-spacing: 2em;
+    background: center center no-repeat url("data:image/svg+xml,%3Csvg stroke='currentColor' fill='currentColor' stroke-width='0' viewBox='0 0 16 16' color='%23CFE4FF' height='1em' width='1em' xmlns='http://www.w3.org/2000/svg' style='color: rgb(207  228  255)%3B'%3E%3Cpath fill-rule='evenodd' d='M6.95.435c.58-.58 1.52-.58 2.1 0l6.515 6.516c.58.58.58 1.519 0 2.098L9.05 15.565c-.58.58-1.519.58-2.098 0L.435 9.05a1.482 1.482 0 0 1 0-2.098L6.95.435z'%3E%3C/path%3E%3C/svg%3E");
 }
 
 .fellepo_wrapper_col a {
@@ -120,63 +133,16 @@
     background-color: white;
 }
 
-.eng_artist {
-    font-size: 26px;
-}
-
-.hun_artist {
-    font-size: 20px;
-}
-
-
-.fellepo_stack {
-    align-self: center;
-}
-
-.sep {
-    padding: 3vh 0;
-    width: 600px;
-}
-
 .placeholder {
     overflow: hidden;
     background-color: black;
-}
-
-
-@media (max-width: 1650px) {
-    .eng_artist {
-        font-size: 20px;
-    }
-
-    .hun_artist {
-        font-size: 16px;
-    }
-
-    .sep {
-        width: 500px;
-    }
-}
-
-
-@media (max-width: 1300px) {
-    .eng_artist {
-        font-size: .9rem;
-    }
-
-    .hun_artist {
-        font-size: .8rem;
-    }
-
-    .sep {
-        width: 500px;
-    }
 }
 
 @media (max-width: 992px) {
     .wrapper {
         padding-top: 0;
     }
+
     .hero_logo {
         position: inherit;
         height: 50vh;
@@ -211,23 +177,18 @@
         align-self: center;
     }
 
-    .eng_artist {
-        font-size: 1.3rem;
+    .fellepo_wrapper_col li {
+        font-size: 3vw;
     }
 
-    .hun_artist {
-        font-size: 1rem;
-    }
-
-    .sep {
-        width: 90%;
-    }
+    
 }
 
 @media (max-width: 800px) {
     .hero_logo_col {
         clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
     }
+
 }
 
 @media (max-width: 767px) {
@@ -237,58 +198,24 @@
         padding: .75em 1.65em;
     }
 
-    .eng_artist {
-        font-size: .9rem;
-    }
-
-    .hun_artist {
-        font-size: .9rem;
-    }
 }
 
 @media (max-width: 576px) {
-    .jegyek { 
+    .jegyek {
         font-size: 12px;
         letter-spacing: 10px;
         text-indent: 10px;
-    }
-    .eng_artist {
-        font-size: .6rem;
-    }
-
-    .hun_artist {
-        font-size: 10px;
     }
 
     .hero_logo {
         width: 80vw;
     }
-
-    .fellepo_stack {
-        gap: 1rem !important;
-    }
-
-    .sep {
-        width: 70%;
-    }
 }
 
 @media (max-width: 400px) {
-    .jegyek { 
+    .jegyek {
         font-size: 12px;
         letter-spacing: 10px;
         text-indent: 10px;
-    }
-
-    .sep {
-        padding: 1vh 0;
-        width: 70%;
-    }
-    .eng_artist {
-        font-size: .4rem;
-    }
-
-    .hun_artist {
-        font-size: .5rem;
     }
 }
