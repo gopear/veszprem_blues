@@ -26,7 +26,7 @@ const IndexPage = ({ data } : PageProps<Queries.IndexPageQuery>) => {
           </Col>
           <Col xs={12} md={10} lg={{ span: 6, offset: 5 }} className={styles.hero_content} >
             <img src={data.strapiIndex!.Hero!.url!} alt='Hero' className={styles.hero}/>
-            <button className={styles.jegyek}><Trans>Jegyek</Trans></button>
+            <Link to="/tickets" className={styles.jegyek}><Trans>Jegyek</Trans></Link>
           </Col>
         </Row>
         <Row className={styles.content_wrapper}>

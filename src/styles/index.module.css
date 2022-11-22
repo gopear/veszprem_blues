@@ -1,6 +1,7 @@
 .wrapper {
     justify-content: center;
     min-height: 100vh;
+    padding-top: 10vh;
 }
 
 .hero_logo {
@@ -8,22 +9,20 @@
 }
 
 .hero_logo_col {
-    padding-left: 5vw;
-    padding-right: 5vw;
     background-color: white;
     position: fixed;
     left: 0;
     top: 0;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     height: 100vh;
     justify-content: center;
-    align-items: flex-end;
-    flex-wrap: wrap;
+    align-items: center;
     clip-path: polygon(0 0, 100% 0, 75% 100%, 0% 100%);
 }
 
 .sponsor_wrapper {
+    align-self: center;
     z-index: 12;
 }
 
@@ -73,6 +72,10 @@
     padding: .75em 1.65em;
     max-width: 460px;
     transform: rotate(-2deg);
+}
+
+.jegyek:hover {
+    color: white;
 }
 
 .jegyek:focus {
@@ -170,9 +173,14 @@
 }
 
 @media (max-width: 992px) {
+    .wrapper {
+        padding-top: 0;
+    }
     .hero_logo {
         position: inherit;
         height: 50vh;
+        width: inherit;
+        align-self: center;
     }
 
     .hero_logo_col {
@@ -183,7 +191,7 @@
         flex-direction: column;
         align-content: center;
         padding: inherit;
-        padding-top: 20vw;
+        padding-top: 15vw;
         padding-bottom: 12vh;
     }
 
@@ -249,5 +257,37 @@
 
     .hun_artist {
         font-size: 10px;
+    }
+
+    .hero_logo {
+        width: 90%;
+    }
+
+    .fellepo_stack {
+        gap: 1rem !important;
+    }
+
+    .sep {
+        width: 70%;
+    }
+}
+
+@media (max-width: 400px) {
+    .jegyek { 
+        font-size: 12px;
+        letter-spacing: 10px;
+        text-indent: 10px;
+    }
+
+    .sep {
+        padding: 1vh 0;
+        width: 70%;
+    }
+    .eng_artist {
+        font-size: .4rem;
+    }
+
+    .hun_artist {
+        font-size: .5rem;
     }
 }

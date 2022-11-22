@@ -5,30 +5,36 @@ import { Col, Container, Row } from 'react-bootstrap'
 import Layout from '../components/layout'
 import { SEO } from '../components/seo'
 import * as styles from "../styles/program.module.css"
-import { useEffect } from 'react';
-import { navigate } from "@reach/router"
-import { useI18next } from 'gatsby-plugin-react-i18next'
-
 
 const Program = ({ data }: PageProps<Queries.ProgramPageQuery>) => {
-  return null;
+  return (
+    <Layout>
+      
+    </Layout>
+  )
   return (
     <Layout>
       <Container fluid>
-        <div className={styles.main_wrapper}>
+        <Row>
+          <Col>
+          <div className={styles.main_wrapper}>
           {data.allStrapiArtist.nodes.map(artist => (
             <div className={styles.artist_wrapper}>
               <div className={styles.artist_img_wrapper}>
                 <GatsbyImage alt={artist.Name!} image={artist.Image!.localFile!.childImageSharp!.gatsbyImageData!} className={styles.artist_image}/>
                 <div className={styles.artist_name}>
                     <h4>
-                      {artist.Name!}
+                      asd
+                      {/* {artist.Name!} */}
                     </h4>
                 </div>
               </div>
             </div>
           ))}
         </div>
+          </Col>
+        </Row>
+        
       </Container>
     </Layout>
   )
@@ -64,8 +70,8 @@ query ProgramPage($language: String!) {
         localFile {
           childImageSharp {
             gatsbyImageData (
-              aspectRatio: 0.7,
-              layout: FULL_WIDTH
+              aspectRatio: 1,
+              layout: FULL_WIDTH,
               transformOptions: {
                 cropFocus: ENTROPY,
                 fit: COVER
@@ -75,6 +81,9 @@ query ProgramPage($language: String!) {
         }
       }
     }
+  }
+  frame:file(name: {eq: "ARTIST_CONTAINER"}) {
+    publicURL
   }
 }
 `;

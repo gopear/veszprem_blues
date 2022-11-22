@@ -15,7 +15,7 @@ const Ticket = ({ title, day, price, isPass = false, inactive = false } : Ticket
   return (
     // <Col xs={12} md={5} xxl={2} className={`${styles.ticket_base} ${isPass ? styles.ticket_pass : styles.ticket_day} ${inactive ? styles.ticket_inactive : ''}`}>
     <div className={styles.ticket_wrapper}>
-      <div className={`${styles.ticket_base} ${isPass ? styles.ticket_pass : styles.ticket_day} ${inactive ? styles.ticket_inactive : ''}`}>
+      <div className={`${styles.ticket_base} ${isPass ? styles.ticket_pass : ''} ${inactive ? styles.ticket_inactive : ''}`}>
         <span className={styles.ticket_title}>
             <h3><Trans>{title}</Trans></h3>
             <h4><Trans>{day}</Trans></h4>

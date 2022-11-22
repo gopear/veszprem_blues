@@ -221,6 +221,11 @@
     .ticket_base {
         margin: 0;
     }
+
+    .ticket_wrapper {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
 }
 
 
