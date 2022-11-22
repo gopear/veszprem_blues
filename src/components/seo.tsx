@@ -29,6 +29,7 @@ export const SEO = ({ title, description, pathname, children } : SEOProps) => {
       <meta name="twitter:url" content={seo.url} />
       <meta name="twitter:description" content={seo.description} />
       <meta name="twitter:image" content={seo.image} />
+      <meta name="facebook-domain-verification" content="1g82pnck0122wwgm8uow8rdwz06061" />
       {/* <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>👤</text></svg>" /> */}
       {children}
     </>

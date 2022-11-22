@@ -5373,6 +5373,11 @@ gatsby-plugin-dts-css-modules@^3.0.0:
   dependencies:
     dts-css-modules-loader "2.0.0"
 
+gatsby-plugin-facebook-pixel@^1.0.8:
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-facebook-pixel/-/gatsby-plugin-facebook-pixel-1.0.8.tgz#8f5aa6816ddf1cf451c372464fa3f873d7dae288"
+  integrity sha512-oJfTMJxAv5AF2sganhtaq3+6GZ2W2s6/RjQxVsRUxUWMxhrtW6YeMsayAh1bVPgVQ8boJ0QyftipXe7fyq4BCA==
+
 gatsby-plugin-image@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-image/-/gatsby-plugin-image-3.0.0.tgz#da1b186fc3e04d3082594bfe9f48e327a9b6ea20"

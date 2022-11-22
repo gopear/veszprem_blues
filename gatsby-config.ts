@@ -128,7 +128,13 @@ const config: GatsbyConfig = {
           }
         },
       },
-    }
+    },
+    {
+      resolve: `gatsby-plugin-facebook-pixel`,
+      options: {
+        pixelId: "1483340128818505",
+      },
+    },
   ]
 };
 
