@@ -1,15 +1,21 @@
 import { graphql, HeadProps, PageProps } from 'gatsby'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import React from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 import Layout from '../../components/layout'
 import { SEO } from '../../components/seo'
+import * as styles from "../../styles/artist.module.css"
 
 const Artist = ({ data }: PageProps<Queries.ArtistPageQuery>) => {
   return (
     <Layout>
-      <Container>
-        <Row style={{ justifyContent: 'center', paddingTop: '10vh', 'paddingBottom': '3vh', paddingLeft: '5%', paddingRight: '5%' }}>
-          <Col xs={12} style={{ backgroundImage: `url(${data.wip!.publicURL!})`, height: '80vh', width: '100%', backgroundRepeat: 'no-repeat', backgroundSize: 'fit', backgroundPosition: 'center' }}>
+      <Container fluid>
+        <Row className={styles.img_row_wrapper}>
+          <Col xs={10} md={8} className={styles.img_wrapper}>
+            <GatsbyImage alt={data.strapiArtist!.Name!} image={data.strapiArtist!.Image!.localFile!.childImageSharp!.gatsbyImageData!} className={styles.img}/>
+            <div className={styles.name_wrapper}>
+              <h1 className={styles.name}>{data.strapiArtist!.Name!}</h1>
+            </div>
           </Col>
         </Row>
       </Container>
@@ -37,7 +43,14 @@ query ArtistPage($language: String!, $id: String!) {
     Image {
       localFile {
         childImageSharp {
-          gatsbyImageData
+          gatsbyImageData (
+              aspectRatio: 1,
+              layout: FULL_WIDTH,
+              transformOptions: {
+                cropFocus: ENTROPY,
+                fit: COVER
+              }
+            )
         }
       }
     }

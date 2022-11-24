@@ -1,5 +1,6 @@
 import { graphql, HeadProps, PageProps } from 'gatsby'
 import { GatsbyImage, StaticImage } from 'gatsby-plugin-image'
+import { Link } from 'gatsby-plugin-react-i18next'
 import React from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 import Layout from '../components/layout'
@@ -19,12 +20,12 @@ const Programme = ({ data }: PageProps<Queries.ProgrammePageQuery>) => {
   // )
   return (
     <Layout>
-      <Container fluid className={styles.container}>
+      <Container fluid>
         <Row className={styles.grid_row}>
           <Col xs={10}>
           <div className={styles.main_wrapper}>
           {data.allStrapiArtist.nodes.map(artist => (
-            <div className={styles.artist_wrapper}>
+            <Link to={`/artist/${artist.Slug!}`} className={styles.artist_wrapper}>
               <div className={styles.artist_img_wrapper}>
                 <GatsbyImage alt={artist.Name!} image={artist.Image!.localFile!.childImageSharp!.gatsbyImageData!} className={styles.artist_image}/>
                 <div className={styles.artist_name_wrapper}> 
@@ -34,7 +35,7 @@ const Programme = ({ data }: PageProps<Queries.ProgrammePageQuery>) => {
                 </div>
                
               </div>
-            </div>
+            </Link>
           ))}
         </div>
           </Col>
