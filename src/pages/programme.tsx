@@ -7,37 +7,46 @@ import { SEO } from '../components/seo'
 import * as styles from "../styles/program.module.css"
 
 const Programme = ({ data }: PageProps<Queries.ProgrammePageQuery>) => {
+  // return (
+  //   <Layout>
+  //     <Container>
+  //       <Row style={{justifyContent: 'center', paddingTop: '10vh', 'paddingBottom': '3vh', paddingLeft: '5%', paddingRight: '5%'}}>
+  //         <Col xs={12} style={{backgroundImage: `url(${data.wip!.publicURL!})`, height: '80vh', width: '100%', backgroundRepeat: 'no-repeat', backgroundSize: 'fit', backgroundPosition: 'center'}}>
+  //         </Col>
+  //       </Row>
+  //     </Container>
+  //   </Layout>
+  // )
   return (
     <Layout>
-      <Container>
-        <Row style={{justifyContent: 'center', paddingTop: '10vh', 'paddingBottom': '3vh', paddingLeft: '5%', paddingRight: '5%'}}>
-          <Col xs={12} style={{backgroundImage: `url(${data.wip!.publicURL!})`, height: '80vh', width: '100%', backgroundRepeat: 'no-repeat', backgroundSize: 'fit', backgroundPosition: 'center'}}>
-          </Col>
-        </Row>
-      </Container>
-    </Layout>
-  )
-  return (
-    <Layout>
-      <Container fluid>
-        <Row>
-          <Col>
+      <Container fluid className={styles.container}>
+        {/* <Row className={styles.grid_row}>
+          <Col xs={10}>
           <div className={styles.main_wrapper}>
           {data.allStrapiArtist.nodes.map(artist => (
             <div className={styles.artist_wrapper}>
               <div className={styles.artist_img_wrapper}>
                 <GatsbyImage alt={artist.Name!} image={artist.Image!.localFile!.childImageSharp!.gatsbyImageData!} className={styles.artist_image}/>
-                <div className={styles.artist_name}>
-                    <h4>
-                      asd
-                      {/* {artist.Name!} */}
-                    </h4>
-                </div>
+                <h4 className={styles.artist_name}>
+                    {artist.Name!}
+                </h4>
               </div>
             </div>
           ))}
         </div>
           </Col>
+        </Row> */}
+        <Row className={styles.grid_row} xs={3}>
+          {data.allStrapiArtist.nodes.map(artist => (
+            <Col className={styles.artist_wrapper}>
+              <div className={styles.artist_img_wrapper}>
+                <GatsbyImage alt={artist.Name!} image={artist.Image!.localFile!.childImageSharp!.gatsbyImageData!} className={styles.artist_image}/>
+                <h4 className={styles.artist_name}>
+                    {artist.Name!}
+                </h4>
+              </div>
+            </Col>
+            ))}
         </Row>
         
       </Container>

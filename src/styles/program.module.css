@@ -1,37 +1,99 @@
+.container {
+    width: 80%;
+}
+
+.grid_row {
+    padding-top: 10vh;
+    justify-content: center;
+    padding-bottom: 5vh;
+}
+
 .main_wrapper {
     display: grid;
-    padding-top: 15vh;
+    
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 2vw;
-    width: 70%;
-    margin: auto;
 }
 
 .artist_wrapper {
-    /* clip-path: polygon(0 0, 100% 7%, 100% 100%, 0 93%); */
-   
-    
+    transition: all .2s ease-in-out;
+}
+
+.artist_wrapper:hover {
+    pointer-events: none;
+    filter:  drop-shadow(10px 10px 0px rgb(100 100  100 / 1));
 }
 
 .artist_img_wrapper {
-    padding: 50px;
-    clip-path: polygon(0% 0%, 0 90%, 11% 74%, 15% 20%, 88% 20%, 85% 84%, 11% 74%, 0 90%, 100% 100%, 100% 10%);
-    background-color: white;
-    /* clip-path: polygon(0 0, 100% 0, 93% 100%, 0 93%); */
+    pointer-events: all;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    clip-path: polygon(0 9%, 93% 13%, 100% 100%, 3% 92%);
+    transition: all .2s ease-in-out;
+}
+
+.artist_img_wrapper:hover {
+    clip-path: polygon(0 0%, 100% 13%, 100% 100%, 3% 100%);
+}
+
+.artist_img_wrapper:hover > .artist_image{
+    clip-path: polygon(0 0%, 100% 13%, 100% 100%, 3% 100%);
 }
 
 .artist_image {
-
+    width: 22vw;
+    margin-top: 5vh;
+    margin-left: 2vw;
+    margin-right: 2vw;
+    clip-path: polygon(0 9%, 93% 13%, 100% 100%, 3% 92%);
+    transition: all .2s ease-in-out;
 }
 
 .artist_name {
-    padding-top: 90px;
-    background-color: black;
-    color: white;
+    text-align: center;
+    margin: 1vw 2vw;
+    font-size: 20px;
+    text-transform: uppercase;
+    padding-bottom: 60px;
 }
 
-/* .artist_name h4 {
-    display: table-cell;
-    vertical-align: middle;
-    text-align: center;
-} */
+
+@media (max-width: 768px) {
+	
+	.main_wrapper{
+		grid-template-columns: 1fr 1fr;
+		
+	}
+	
+	/* .artist-image-container{
+		width: 38vw;
+		height: 38vw;
+		
+	}
+
+	.artist-image{
+		width: 30vw;
+		margin-top: 1.4vh;
+	} */
+
+}
+
+@media (max-width: 480px) {
+	
+	.main_wrapper{
+		grid-template-columns: 1fr;
+	}
+
+	/* .artist-image-container{
+		width: 80vw;
+		height: 80vw;
+	}
+	
+	.artist-image{
+		width: 70vw;
+		margin-top:2vh;
+	} */
+}
