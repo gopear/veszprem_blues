@@ -20,34 +20,37 @@ const Programme = ({ data }: PageProps<Queries.ProgrammePageQuery>) => {
   return (
     <Layout>
       <Container fluid className={styles.container}>
-        {/* <Row className={styles.grid_row}>
+        <Row className={styles.grid_row}>
           <Col xs={10}>
           <div className={styles.main_wrapper}>
           {data.allStrapiArtist.nodes.map(artist => (
             <div className={styles.artist_wrapper}>
               <div className={styles.artist_img_wrapper}>
                 <GatsbyImage alt={artist.Name!} image={artist.Image!.localFile!.childImageSharp!.gatsbyImageData!} className={styles.artist_image}/>
-                <h4 className={styles.artist_name}>
+                <div className={styles.artist_name_wrapper}> 
+                  <h4 className={styles.artist_name}>
                     {artist.Name!}
-                </h4>
+                  </h4>
+                </div>
+               
               </div>
             </div>
           ))}
         </div>
           </Col>
-        </Row> */}
-        <Row className={styles.grid_row} xs={3}>
+        </Row>
+        {/* <Row className={styles.grid_row} xs={3}>
           {data.allStrapiArtist.nodes.map(artist => (
             <Col className={styles.artist_wrapper}>
               <div className={styles.artist_img_wrapper}>
                 <GatsbyImage alt={artist.Name!} image={artist.Image!.localFile!.childImageSharp!.gatsbyImageData!} className={styles.artist_image}/>
-                <h4 className={styles.artist_name}>
-                    {artist.Name!}
-                </h4>
+                <div className={styles.artist_name_wrapper}>
+                  <h4 className={styles.artist_name}>{artist.Name!}</h4>
+                  </div>
               </div>
             </Col>
             ))}
-        </Row>
+        </Row> */}
         
       </Container>
     </Layout>
