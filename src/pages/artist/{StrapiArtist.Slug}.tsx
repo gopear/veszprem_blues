@@ -7,6 +7,10 @@ import { SEO } from '../../components/seo'
 import * as styles from "../../styles/artist.module.css"
 
 const Artist = ({ data }: PageProps<Queries.ArtistPageQuery>) => {
+  
+  const spoti = data.strapiArtist?.Spotify ? new URL(data.strapiArtist?.Spotify) : undefined;
+  console.log(spoti)
+
   return (
     <Layout>
       <Container fluid>
@@ -17,6 +21,19 @@ const Artist = ({ data }: PageProps<Queries.ArtistPageQuery>) => {
               <h1 className={styles.name}>{data.strapiArtist!.Name!}</h1>
             </div>
           </Col>
+        </Row>
+        <Row className={styles.data_wrapper}>
+          <Col xs={12} sm={10} lg={data.strapiArtist?.Spotify ? 7 : 10}>
+            <div className={styles.description} dangerouslySetInnerHTML={{__html: data.strapiArtist!.Description!.data!.childMarkdownRemark!.html!}}/>
+          </Col>
+          { spoti && 
+            <Col xs={10} lg={3}>
+                <iframe className={`$embed-responsive-item ${styles.spotify}`} src={`https://open.spotify.com/embed/album/${spoti.pathname.split('/')[2]}`}
+                        width="300" height="380" 
+                        title={`${data.strapiArtist!.Name!} Spotify`}
+                        allow="encrypted-media"/>
+            </Col>
+          }
         </Row>
       </Container>
     </Layout>
@@ -39,7 +56,13 @@ query ArtistPage($language: String!, $id: String!) {
     }
   }
   strapiArtist(id: {eq: $id}) {
-    Description
+    Description {
+      data {
+        childMarkdownRemark {
+          html
+        }
+      }
+    }
     Image {
       localFile {
         childImageSharp {
@@ -47,7 +70,7 @@ query ArtistPage($language: String!, $id: String!) {
               aspectRatio: 1,
               layout: FULL_WIDTH,
               transformOptions: {
-                cropFocus: ENTROPY,
+                cropFocus: ATTENTION,
                 fit: COVER
               }
             )
