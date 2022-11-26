@@ -86,7 +86,7 @@
     align-items: center;
     justify-content: flex-end;
     max-width: 80%;
-    margin-bottom: 30px;
+    margin-bottom: 2vw;
 }
 
 @media (max-width: 971px) {
@@ -102,5 +102,9 @@
     }
     .artist_wrapper {
         grid-column: span 4;
+    }
+
+    .artist_name_wrapper {
+        margin-bottom: 5vw;
     }
 }

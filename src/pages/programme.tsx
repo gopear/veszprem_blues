@@ -23,36 +23,24 @@ const Programme = ({ data }: PageProps<Queries.ProgrammePageQuery>) => {
       <Container fluid>
         <Row className={styles.grid_row}>
           <Col xs={10}>
-          <div className={styles.main_wrapper}>
-          {data.allStrapiArtist.nodes.map(artist => (
-            <Link to={`/artist/${artist.Slug!}`} className={styles.artist_wrapper}>
-              <div className={styles.artist_img_wrapper}>
-                <GatsbyImage alt={artist.Name!} image={artist.Image!.localFile!.childImageSharp!.gatsbyImageData!} className={styles.artist_image}/>
-                <div className={styles.artist_name_wrapper}> 
-                  <h4 className={styles.artist_name}>
-                    {artist.Name!}
-                  </h4>
-                </div>
-               
-              </div>
-            </Link>
-          ))}
-        </div>
+            <div className={styles.main_wrapper}>
+              {data.strapiProgramme!.Artists!.map((artist) => (
+                artist?.Artist &&
+                  <Link key={artist!.Artist.Slug!} to={`/artist/${artist!.Artist.Slug!}`} className={styles.artist_wrapper}>
+                    <div className={styles.artist_img_wrapper}>
+                      <GatsbyImage alt={artist!.Artist.Name!} image={artist!.Artist.Image!.localFile!.childImageSharp!.gatsbyImageData!} className={styles.artist_image}/>
+                      <div className={styles.artist_name_wrapper}> 
+                        <h4 className={styles.artist_name}>
+                          {artist!.Artist.Name!}
+                        </h4>
+                      </div>
+                    
+                    </div>
+                  </Link>
+              ))}
+            </div>
           </Col>
         </Row>
-        {/* <Row className={styles.grid_row} xs={3}>
-          {data.allStrapiArtist.nodes.map(artist => (
-            <Col className={styles.artist_wrapper}>
-              <div className={styles.artist_img_wrapper}>
-                <GatsbyImage alt={artist.Name!} image={artist.Image!.localFile!.childImageSharp!.gatsbyImageData!} className={styles.artist_image}/>
-                <div className={styles.artist_name_wrapper}>
-                  <h4 className={styles.artist_name}>{artist.Name!}</h4>
-                  </div>
-              </div>
-            </Col>
-            ))}
-        </Row> */}
-        
       </Container>
     </Layout>
   )
@@ -76,28 +64,27 @@ query ProgrammePage($language: String!) {
   seo: locale(language: {eq: $language}, ns: {eq: "programme"}) {
     data
   }
-  allStrapiArtist(filter: {locale: {eq: $language}}, sort: {Name: ASC}) {
-    nodes {
-      Slug
-      Name
-      Image {
-        localFile {
-          childImageSharp {
-            gatsbyImageData (
-              aspectRatio: 1,
-              layout: FULL_WIDTH,
-              transformOptions: {
-                cropFocus: ENTROPY,
-                fit: COVER
-              }
-            )
+  strapiProgramme {
+    Artists {
+      Artist {
+        Slug
+        Name
+        Image {
+          localFile {
+            childImageSharp {
+              gatsbyImageData (
+                aspectRatio: 1,
+                layout: FULL_WIDTH,
+                transformOptions: {
+                  cropFocus: ENTROPY,
+                  fit: COVER
+                }
+              )
+            }
           }
         }
       }
     }
-  }
-  wip:file(name: {eq: "vbf_underconstruction"}, sourceInstanceName: {eq: $language}) {
-    publicURL
   }
 }
 `;

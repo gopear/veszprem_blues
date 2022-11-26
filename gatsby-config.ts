@@ -51,6 +51,16 @@ const strapiConfig = {
         }
       }
     },
+    {
+      singularName: 'programme',
+      queryParams: {
+        populate: {
+          Artists: {
+            populate: "*"
+          }
+        }
+      }
+    }
   ]
 };
 
