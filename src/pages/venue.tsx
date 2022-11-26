@@ -23,7 +23,7 @@ const Venue = ({ data }: PageProps<Queries.VenuePageQuery>)  => {
             <div className={styles.description_wrapper}>
               <span dangerouslySetInnerHTML={{__html: data.strapiVenue?.Description?.data?.childMarkdownRemark?.html!}}/>
               <LoadScript
-                googleMapsApiKey='AIzaSyB_YvU-H1MNOuRqm5hlsh6tAZkLj7XsRZ8'>
+                googleMapsApiKey={process.env.GATSBY_MAPS_API_KEY!}>
                 <GoogleMap
                   mapContainerStyle={{
                     height: "600px",
