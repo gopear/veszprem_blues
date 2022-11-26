@@ -19,12 +19,12 @@
 body {
 	font-family: "Druk Wide Bold";
 	box-sizing: border-box;
-	background-color: #CFE4FF;
 	scroll-behavior: smooth;
 }
 
 main {
     flex: 1;
+    padding-top: 90px;
 }
 
 #gatsby-focus-wrapper {

@@ -34,6 +34,14 @@ const strapiConfig = {
         }
       }
     },
+    {
+      singularName: 'venue',
+      pluginOptions: {
+        i18n: {
+          locale: 'all'
+        }
+      }
+    },
   ],
   singleTypes: ['common', 'ticket',
     {
