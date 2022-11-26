@@ -25,13 +25,12 @@
     grid-area: 1/1;
     position: relative;
     place-items: center;
-    text-align: center;
     flex: 1;
     display: flex;
     justify-content: center;
     align-items: flex-end;
     width: 80%;
-    margin-bottom: 50px;
+    margin-bottom: 6vh;
 }
 
 .name {
@@ -46,7 +45,7 @@
     justify-content: center;
     background-color: #fff;
     color: black;
-    text-align: center;
+    text-align: justify;
     padding: 5vh;
 }
 
@@ -63,7 +62,7 @@
 
 @media (max-width: 991px) {
     .spotify {
-        height: 80px;
+        height: 300px;
     }
 }
 
@@ -76,6 +75,10 @@
     .img_wrapper {
         margin: 10vh 0 5vh 0;
         height: auto;
+    }
+
+    .name_wrapper {
+        margin-bottom: 6vw;
     }
 }
 
