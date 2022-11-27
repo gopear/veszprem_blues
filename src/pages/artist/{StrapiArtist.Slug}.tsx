@@ -10,7 +10,6 @@ import * as styles from "../../styles/artist.module.css"
 const Artist = ({ data }: PageProps<Queries.ArtistPageQuery>) => {
   
   const spoti = data.strapiArtist?.Spotify ? new URL(data.strapiArtist?.Spotify) : undefined;
-  console.log(spoti)
 
   return (
     <Layout>
@@ -19,7 +18,7 @@ const Artist = ({ data }: PageProps<Queries.ArtistPageQuery>) => {
         <>
           <Row className={styles.img_row_wrapper}>
             <Col xs={10} md={8} className={styles.img_wrapper}>
-              <GatsbyImage alt={data.strapiArtist!.Name!} image={data.strapiArtist!.Image!.localFile!.childImageSharp!.gatsbyImageData!} className={styles.img}/>
+              <GatsbyImage alt={data.strapiArtist!.Name!} image={data.strapiArtist!.Image!.localFile!.childImageSharp!.gatsbyImageData!} className={styles.img} />
               <div className={styles.name_wrapper}>
                 <h1 className={styles.name}>{data.strapiArtist!.Name!}</h1>
               </div>

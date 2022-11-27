@@ -30,6 +30,11 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+}
+
+.pin_img {
+    width: 40%;
 }
 
 .sponsor_wrapper {
@@ -55,3 +60,13 @@
     filter: invert();
 }
 
+.map {
+    height: 400px;
+    width: 80%;
+}
+
+@media (max-width: 991px) {
+    .map {
+        height: 500px;
+    }
+}

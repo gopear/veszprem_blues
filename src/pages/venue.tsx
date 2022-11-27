@@ -4,7 +4,6 @@ import React from 'react'
 import { Col, Container, Row, Stack } from 'react-bootstrap';
 import Layout from '../components/layout';
 import { SEO } from '../components/seo';
-import UnderConstruction from '../components/under_construction';
 import * as styles from "../styles/venue.module.css"
 
 const Venue = ({ data }: PageProps<Queries.VenuePageQuery>)  => {
@@ -19,16 +18,13 @@ const Venue = ({ data }: PageProps<Queries.VenuePageQuery>)  => {
     <Layout bg_color='white' main_style={{display: 'flex'}}>
       <Container fluid style={{display: 'flex'}}>
         <Row className={styles.row_wrapper}>
-          <Col xs={7} className={styles.left_col}>
+          <Col xs={{span: 10, order: 2}} lg={7}  className={styles.left_col}>
             <div className={styles.description_wrapper}>
               <span dangerouslySetInnerHTML={{__html: data.strapiVenue?.Description?.data?.childMarkdownRemark?.html!}}/>
               <LoadScript
                 googleMapsApiKey={process.env.GATSBY_MAPS_API_KEY!}>
                 <GoogleMap
-                  mapContainerStyle={{
-                    height: "600px",
-                    width: "600px"
-                  }}
+                  mapContainerClassName={styles.map}  
                   zoom={18}
                   center={{
                     lat: 47.0923736869941, 
@@ -42,8 +38,8 @@ const Venue = ({ data }: PageProps<Queries.VenuePageQuery>)  => {
             </div>
             
           </Col>
-          <Col xs={3} className={styles.right_col}>
-            <img alt='pin' src={data.strapiVenue!.PinImage!.localFile!.url!}/>
+          <Col xs={{span: 12, order: 1}} lg={3} className={styles.right_col}>
+            <img alt='pin' src={data.strapiVenue!.PinImage!.localFile!.url!} className={styles.pin_img}/>
             <Stack direction="horizontal" className={styles.sponsor_wrapper}>
                 {links.map(s => (
                   <a key={s!.data!.Link!} href={s!.data!.Link!}>
