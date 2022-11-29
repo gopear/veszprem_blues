@@ -9,6 +9,7 @@
 
 .hero_logo_col {
     background-color: white;
+    padding-right: 90px;
     position: fixed;
     left: 0;
     top: 0;
@@ -154,6 +155,7 @@
         padding: inherit;
         padding-top: 2vw;
         padding-bottom: 12vh;
+        padding-right: inherit;
     }
 
     .jegyek {

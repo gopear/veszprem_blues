@@ -73,7 +73,7 @@ query ArtistPage($language: String!,  $Slug: String!) {
       localFile {
         childImageSharp {
           gatsbyImageData (
-              aspectRatio: 1,
+              aspectRatio: 1.5,
               layout: FULL_WIDTH,
               transformOptions: {
                 cropFocus: ATTENTION,
