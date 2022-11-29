@@ -37,7 +37,7 @@ const Artist = ({ data }: PageProps<Queries.ArtistPageQuery>) => {
               </Col>
             }
           </Row>
-        </>
+        </> 
         :
           <UnderConstruction url={data.wip!.publicURL}/>
         }
