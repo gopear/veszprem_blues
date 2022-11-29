@@ -31,7 +31,7 @@ const IndexPage = ({ data } : PageProps<Queries.IndexPageQuery>) => {
           <Col xs={12} lg={{span: 7, offset: 5}} className={styles.fellepo_wrapper_col}>
             <ul>
               {data.strapiIndex!.Artists!.map(artist => (
-                <li key={artist!.Artist!.Slug!}><Link to={`/artist/${artist!.Artist!.Slug!}`}>{artist!.Artist!.Name!}</Link></li>
+                <li key={artist!.Artist!.Slug!}><Link to={artist!.Artist!.gatsbyPath!}>{artist!.Artist!.Name!}</Link></li>
               ))}
             </ul>
           </Col>
@@ -74,6 +74,9 @@ query IndexPage($language: String!) {
     }
     Artists {
       Artist {
+        gatsbyPath(
+          filePath: "/artist/{StrapiArtist.Slug}"
+        )
         Name
         Slug
       }

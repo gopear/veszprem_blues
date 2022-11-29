@@ -26,7 +26,7 @@ const Programme = ({ data }: PageProps<Queries.ProgrammePageQuery>) => {
             <div className={styles.main_wrapper}>
               {data.strapiProgramme!.Artists!.map((artist) => (
                 artist?.Artist &&
-                  <Link key={artist!.Artist.Slug!} to={`/artist/${artist!.Artist.Slug!}`} className={styles.artist_wrapper}>
+                  <Link key={artist!.Artist.Slug!} to={artist!.Artist!.gatsbyPath!} className={styles.artist_wrapper}>
                     <div className={styles.artist_img_wrapper}>
                       <GatsbyImage alt={artist!.Artist.Name!} image={artist!.Artist.Image!.localFile!.childImageSharp!.gatsbyImageData!} className={styles.artist_image}/>
                       <div className={styles.artist_name_wrapper}> 
@@ -67,6 +67,9 @@ query ProgrammePage($language: String!) {
   strapiProgramme {
     Artists {
       Artist {
+        gatsbyPath(
+          filePath: "/artist/{StrapiArtist.Slug}"
+        )
         Slug
         Name
         Image {

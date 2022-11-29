@@ -34,7 +34,7 @@
 }
 
 .pin_img {
-    width: 40%;
+    width: 100%;
 }
 
 .sponsor_wrapper {
@@ -65,8 +65,26 @@
     width: 80%;
 }
 
+.marker {
+    margin-left: 0px;
+}
+
 @media (max-width: 991px) {
+    .description_wrapper {
+        font-size: 1.2em;
+    }
     .map {
         height: 500px;
+        width: 100%;
+    }
+
+    .pin_img {
+        width: 40%;
+    }
+}
+
+@media (max-width: 571px) {
+    .map {
+        height: 280px;
     }
 }

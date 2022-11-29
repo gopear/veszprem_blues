@@ -8,7 +8,7 @@ import UnderConstruction from '../../components/under_construction'
 import * as styles from "../../styles/artist.module.css"
 
 const Artist = ({ data }: PageProps<Queries.ArtistPageQuery>) => {
-  
+
   const spoti = data.strapiArtist?.Spotify ? new URL(data.strapiArtist?.Spotify) : undefined;
 
   return (
@@ -51,7 +51,7 @@ export default Artist
 export const Head = ({ data }: HeadProps<Queries.ArtistPageQuery>) => <SEO title={data.strapiArtist?.Name} />
 
 export const query = graphql`
-query ArtistPage($language: String!, $id: String!) {
+query ArtistPage($language: String!,  $Slug: String!) {
   locales: allLocale(filter: {language: {eq: $language}}) {
     edges {
       node {
@@ -61,7 +61,7 @@ query ArtistPage($language: String!, $id: String!) {
       }
     }
   }
-  strapiArtist(id: {eq: $id}, locale: {eq: $language}) {
+  strapiArtist(Slug: {eq: $Slug}, locale: {eq: $language}) {
     Description {
       data {
         childMarkdownRemark {
