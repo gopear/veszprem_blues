@@ -23,7 +23,6 @@
 .name_wrapper {
     grid-area: 1/1;
     position: relative;
-    place-items: center;
     flex: 1;
     display: flex;
     justify-content: center;
