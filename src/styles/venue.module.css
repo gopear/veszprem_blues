@@ -1,0 +1,91 @@
+.row_wrapper {
+    background-color: white;
+    justify-content: center;
+    align-content: center;
+    flex: 1;
+    padding-top: 3vh;
+    padding-bottom: 3vh; 
+}
+
+.left_col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+
+.description_wrapper {
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #CFE4FF;
+    font-size: 2em;
+    text-align: center;
+    clip-path: polygon(0 0, 95% 5%, 100% 100%, 5% 95%);
+}
+
+.right_col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.pin_img {
+    width: 100%;
+    height: 50vh;
+}
+
+.sponsor_wrapper {
+    align-self: center;
+    z-index: 12;
+}
+
+.sponsor_wrapper a {
+    transition: all .2s ease-in-out;
+}
+
+.sponsor_wrapper img {
+    width: 7rem;
+    padding: 10px;
+    transition: all .2s ease-in-out;
+}
+
+.sponsor_wrapper a:hover {
+    background: black;
+}
+
+.sponsor_wrapper a:hover img {
+    filter: invert();
+}
+
+.map {
+    height: 40vh;
+    width: 80%;
+}
+
+.marker {
+    margin-top: 60px;
+}
+
+@media (max-width: 991px) {
+    .description_wrapper {
+        font-size: 1.2em;
+    }
+    .map {
+        height: 500px;
+        width: 100%;
+    }
+
+    .pin_img {
+        width: 60vw;
+    }
+}
+
+@media (max-width: 571px) {
+    .map {
+        height: 280px;
+    }
+}

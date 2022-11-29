@@ -5,13 +5,15 @@ import { WindowLocation } from "@reach/router"
 
 interface LayoutProps {
     children?: React.ReactNode
+    bg_color?: string;
+    main_style?: React.CSSProperties
 }
 
-const Layout = ({ children } : LayoutProps) => {
+const Layout = ({ children, bg_color = '#CFE4FF', main_style} : LayoutProps) => {
   return (
     <>
     <Navigation/>
-    <main>{children}</main>
+    <main style={{backgroundColor: bg_color, ...main_style}}>{children}</main>
     <Footer/>
     </>
   )

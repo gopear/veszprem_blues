@@ -14,7 +14,6 @@ interface TicketProps {
 const Ticket = ({ title, day, price, inactive, isPass = false } : TicketProps) => {
   const formatter = new Intl.NumberFormat('hu-HU');
   return (
-    // <Col xs={12} md={5} xxl={2} className={`${styles.ticket_base} ${isPass ? styles.ticket_pass : styles.ticket_day} ${inactive ? styles.ticket_inactive : ''}`}>
     <div className={styles.ticket_wrapper}>
       <div className={`${styles.ticket_base} ${isPass ? styles.ticket_pass : ''} ${inactive ? styles.ticket_inactive : ''}`}>
         <span className={styles.ticket_title}>
@@ -25,7 +24,6 @@ const Ticket = ({ title, day, price, inactive, isPass = false } : TicketProps) =
         <a className={styles.ticket_btn} href='https://cooltix.hu/event/637b299999c9e71b0efafb4e' style={{pointerEvents: inactive ? 'none' : 'inherit'}}><Trans>MEGVESZEM</Trans></a>
       </div>
     </div>
-    // </Col>
   )
 }
 

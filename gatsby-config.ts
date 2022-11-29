@@ -33,7 +33,7 @@ const strapiConfig = {
           locale: 'all'
         }
       }
-    },
+    }
   ],
   singleTypes: ['common', 'ticket',
     {
@@ -51,6 +51,24 @@ const strapiConfig = {
         }
       }
     },
+    {
+      singularName: 'programme',
+      queryParams: {
+        populate: {
+          Artists: {
+            populate: "*"
+          }
+        }
+      }
+    },
+    {
+      singularName: 'venue',
+      pluginOptions: {
+        i18n: {
+          locale: 'all'
+        }
+      }
+    }
   ]
 };
 

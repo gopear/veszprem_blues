@@ -3,15 +3,13 @@ import React from 'react'
 import { Col, Container, Row } from 'react-bootstrap';
 import Layout from '../components/layout';
 import { SEO } from '../components/seo';
+import UnderConstruction from '../components/under_construction';
 
 const Contact = ({ data }: PageProps<Queries.ContactPageQuery>)  => {
   return (
     <Layout>
       <Container>
-        <Row style={{ justifyContent: 'center', paddingTop: '10vh', 'paddingBottom': '3vh', paddingLeft: '5%', paddingRight: '5%' }}>
-          <Col xs={12} style={{ backgroundImage: `url(${data.wip!.publicURL!})`, height: '80vh', width: '100%', backgroundRepeat: 'no-repeat', backgroundSize: 'fit', backgroundPosition: 'center' }}>
-          </Col>
-        </Row>
+        <UnderConstruction url={data.wip!.publicURL!}/>
       </Container>
     </Layout>
   )
