@@ -71,7 +71,7 @@ const Venue = ({ data }: PageProps<Queries.VenuePageQuery>)  => {
                     clickableIcons: false,
                     styles: mapStyle,
                   }}
-                  >
+                  > 
                   {links.map(p => (
                     <Marker 
                       key={p.data?.Link} 
