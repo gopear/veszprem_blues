@@ -49,6 +49,7 @@
 }
 
 .description {
+    font-family: 'Druk Text';
     white-space: pre-line;
 }
 
@@ -79,6 +80,10 @@
     .name_wrapper {
         margin-bottom: 6vw;
     }
+
+    .name {
+        font-size: 1.5em;
+    }
 }
 
 @media (max-width: 575px) {
@@ -87,6 +92,6 @@
     }
 
     .name {
-        font-size: 1.4em;
+        font-size: 1em;
     }
 }

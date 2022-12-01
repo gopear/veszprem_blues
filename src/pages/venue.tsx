@@ -11,8 +11,6 @@ interface WindowSize {
   height?: number | undefined;
 }
 
-
-
 const Venue = ({ data }: PageProps<Queries.VenuePageQuery>)  => {
 
   const [windowSize, setWindowSize] = useState<WindowSize>({
@@ -38,6 +36,11 @@ const Venue = ({ data }: PageProps<Queries.VenuePageQuery>)  => {
     {data: data.strapiIndex?.Sponsors?.find(el => el!.Link === 'https://www.facebook.com/papirkutya.veszprem/'), position: {lat: 47.09290317083471, lng: 17.907879188627607}, label: 'Papírkutya'},
   ]
 
+  const markers = [
+    {position: {lat: 47.09183284455138, lng: 17.90921478917739}, label: 'Hangvilla, Expresszó'},
+    {position: {lat: 47.09290317083471, lng: 17.907879188627607}, label: 'Papírkutya'},
+  ]
+
   const mapStyle : google.maps.MapTypeStyle[] = [
     {
       featureType: "poi.business",
@@ -54,14 +57,14 @@ const Venue = ({ data }: PageProps<Queries.VenuePageQuery>)  => {
     <Layout bg_color='white' main_style={{display: 'flex'}}>
       <Container fluid style={{display: 'flex'}}>
         <Row className={styles.row_wrapper}>
-          <Col xs={{span: 12, order: 2}} sm={{span: 10, order: 2}} lg={{span: 7, order: 1}}  className={styles.left_col}>
+          <Col xs={12} sm={10} lg={7}  className={styles.left_col}>
             <div className={styles.description_wrapper}>
               <span dangerouslySetInnerHTML={{__html: data.strapiVenue?.Description?.data?.childMarkdownRemark?.html!}}/>
               <LoadScript
                 googleMapsApiKey={process.env.GATSBY_MAPS_API_KEY!}>
                 <GoogleMap
                   mapContainerClassName={styles.map}  
-                  zoom={ windowSize.width === undefined || windowSize.width >= 572 ? 18 : 17 }
+                  zoom={ 16 }
                   center={{
                     lat: 47.0923736869941, 
                     lng: 17.908637228968374
@@ -72,9 +75,9 @@ const Venue = ({ data }: PageProps<Queries.VenuePageQuery>)  => {
                     styles: mapStyle,
                   }}
                   > 
-                  {links.map(p => (
+                  {markers.map((p, idx) => (
                     <Marker 
-                      key={p.data?.Link} 
+                      key={idx} 
                       position={p.position} 
                       label={{
                         text: p.label,
@@ -88,7 +91,7 @@ const Venue = ({ data }: PageProps<Queries.VenuePageQuery>)  => {
             </div>
             
           </Col>
-          <Col xs={{span: 12, order: 1}} lg={{span: 3, order: 2}} className={styles.right_col}>
+          <Col xs={12} lg={3} className={styles.right_col}>
             <img alt='pin' src={data.strapiVenue!.PinImage!.localFile!.url!} className={styles.pin_img}/>
             <Stack direction="horizontal" className={styles.sponsor_wrapper}>
                 {links.map(s => (
@@ -122,7 +125,7 @@ query VenuePage($language: String!) {
   seo: locale(language: {eq: $language}, ns: {eq: "venue"}) {
     data
   }
-  strapiVenue {
+  strapiVenue(locale: {eq: $language}) {
     Description {
       data {
         childMarkdownRemark {

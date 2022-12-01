@@ -8,6 +8,13 @@
 	src: url(/fonts/Druk_Wide_Bold.woff2) format("woff2");
 }
 
+@font-face {
+	font-family: 'Druk Text';
+	font-weight: 700;
+	font-style: normal;
+	src: url(/fonts/DrukText-Medium.otf) format("otf");
+}
+
 
 * {
 	margin: 0;
