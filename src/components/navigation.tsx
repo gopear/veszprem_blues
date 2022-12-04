@@ -34,6 +34,7 @@ const Navigation = () => {
 
   useEffect(() => {
     setActiveDom(document);
+    allowScroll();
   }, [])
 
   useEffect(() => {
