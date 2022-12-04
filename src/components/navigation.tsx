@@ -32,18 +32,18 @@ const Navigation = () => {
     }
   `)
 
-  useEffect(() => {
-    setActiveDom(document);
-    allowScroll();
-  }, [])
+  // useEffect(() => {
+  //   setActiveDom(document);
+  //   allowScroll();
+  // }, [])
 
-  useEffect(() => {
-    if (collapsed) {
-      allowScroll();
-    } else {
-      blockScroll();
-    }
-  }, [collapsed])
+  // useEffect(() => {
+  //   if (collapsed) {
+  //     allowScroll();
+  //   } else {
+  //     blockScroll();
+  //   }
+  // }, [collapsed])
   
 
   return (
