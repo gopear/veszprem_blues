@@ -1,14 +1,16 @@
 import { graphql, useStaticQuery } from 'gatsby'
 import React, { useState } from 'react'
 import { Navbar, Container, Nav, Stack, DropdownButton, Dropdown } from "react-bootstrap"
-import { WindowLocation } from "@reach/router"
 import { Link, Trans, useI18next } from 'gatsby-plugin-react-i18next'
 import * as styles from "../styles/layout.module.css";
+import { useScrollBlock } from '../hooks/useScrollBlock';
 
 const Navigation = () => {
 
   const [collapsed, setCollapsed] = useState(true)
   const { languages, originalPath, language } = useI18next();
+
+  const [ blockScroll, allowScroll ] = useScrollBlock();
 
   const data = useStaticQuery<Queries.HeaderCompQuery>(graphql`
     query HeaderComp {
@@ -29,6 +31,16 @@ const Navigation = () => {
     }
   `)
 
+  function handleNavBtn() {
+    setCollapsed(!collapsed);
+    console.log(collapsed)
+    if (!collapsed) {
+      allowScroll(); 
+    } else {
+      blockScroll();
+    }
+  }
+
   return (
     <Navbar fixed={'top'} expand='lg' className={styles.navbar_wrapper}>
       <Container fluid>
@@ -48,7 +60,7 @@ const Navigation = () => {
               </DropdownButton>
             </Nav.Item>
           </Nav>
-        <button aria-controls='responsive-navbar-nav' className={`navbar-toggler ${collapsed ? 'collapsed' : ''}`} onClick={() => setCollapsed(!collapsed)}>
+        <button aria-controls='responsive-navbar-nav' className={`navbar-toggler ${collapsed ? 'collapsed' : ''}`} onClick={() => handleNavBtn()}>
           <span className="icon-bar"></span>
           <span className="icon-bar"></span>
           <span className="icon-bar"></span>
