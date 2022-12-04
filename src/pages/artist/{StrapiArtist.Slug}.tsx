@@ -29,7 +29,7 @@ const Artist = ({ data }: PageProps<Queries.ArtistPageQuery>) => {
               <div className={styles.description} dangerouslySetInnerHTML={{__html: data.strapiArtist!.Description!.data!.childMarkdownRemark!.html!}}/>
             </Col>
             { spoti && 
-              <Col xs={12} lg={3}>
+              <Col xs={12} sm={10} lg={3}>
                   <iframe className={`$embed-responsive-item ${styles.spotify}`} src={`https://open.spotify.com/embed/album/${spoti.pathname.split('/')[2]}`}
                           width="300" height="380" 
                           title={`${data.strapiArtist!.Name!} Spotify`}

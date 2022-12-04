@@ -35,7 +35,7 @@ const Footer = () => {
             <Stack direction='horizontal' gap={4}>
               <a href='https://www.facebook.com/veszprembluesfesztival' className={styles.footer_icon_wrapper}><img alt='Facebook' src={data.strapiCommon!.FacebookIcon!.url!} className={styles.footer_icon}/></a>
               <a href='https://www.instagram.com/veszprembluesfesztival' className={styles.footer_icon_wrapper}><img alt='Instagram' src={data.strapiCommon!.InstagramIcon!.url!} className={styles.footer_icon}/></a>
-              <a href='#' className={styles.footer_icon_wrapper}><img alt='Youtube' src={data.strapiCommon!.YoutubeIcon!.url!} className={styles.footer_icon}/></a>
+              {/* <a href='#' className={styles.footer_icon_wrapper}><img alt='Youtube' src={data.strapiCommon!.YoutubeIcon!.url!} className={styles.footer_icon}/></a> */}
             </Stack>
           </Col>
         </Row>

@@ -3,15 +3,11 @@ import React, { useEffect, useState } from 'react'
 import { Navbar, Container, Nav, Stack, DropdownButton, Dropdown } from "react-bootstrap"
 import { Link, Trans, useI18next } from 'gatsby-plugin-react-i18next'
 import * as styles from "../styles/layout.module.css";
-import { useScrollBlock } from '../hooks/useScrollBlock';
 
 const Navigation = () => {
 
-  const [collapsed, setCollapsed] = useState(true)
+  const [ collapsed, setCollapsed ] = useState(true)
   const { languages, originalPath, language } = useI18next();
-
-  const [ activeDom, setActiveDom ] = useState<Document>()
-  const [ blockScroll, allowScroll ] = useScrollBlock(activeDom);
 
   const data = useStaticQuery<Queries.HeaderCompQuery>(graphql`
     query HeaderComp {
@@ -32,19 +28,13 @@ const Navigation = () => {
     }
   `)
 
-  // useEffect(() => {
-  //   setActiveDom(document);
-  //   allowScroll();
-  // }, [])
-
-  // useEffect(() => {
-  //   if (collapsed) {
-  //     allowScroll();
-  //   } else {
-  //     blockScroll();
-  //   }
-  // }, [collapsed])
-  
+  useEffect(() => {
+    if (!collapsed) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'inherit';
+    }
+  }, [collapsed])
 
   return (
     <Navbar fixed={'top'} expand='lg' className={styles.navbar_wrapper}>
@@ -90,10 +80,10 @@ const Navigation = () => {
           </Nav>
           <Nav className={styles.navbar_social_wrapper}>
             <Nav.Item>
-              <a href='https://www.facebook.com/veszprembluesfesztival' className={styles.navbar_icon_wrapper}><img alt='Facebook' src={data.strapiCommon!.FacebookIcon!.url!} className={styles.navbar_icon} /></a>
+              <a href='https://www.facebook.com/veszpremblues/' className={styles.navbar_icon_wrapper}><img alt='Facebook' src={data.strapiCommon!.FacebookIcon!.url!} className={styles.navbar_icon} /></a>
             </Nav.Item>
             <Nav.Item>
-              <a href='https://www.facebook.com/veszprembluesfesztival' className={styles.navbar_icon_wrapper}><img alt='Instagram' src={data.strapiCommon!.InstagramIcon!.url!} className={styles.navbar_icon} /></a>
+              <a href='https://www.instagram.com/veszpremblues' className={styles.navbar_icon_wrapper}><img alt='Instagram' src={data.strapiCommon!.InstagramIcon!.url!} className={styles.navbar_icon} /></a>
             </Nav.Item>
             {/* <Nav.Item>
               <a href='#' className={styles.navbar_icon_wrapper}><img alt='Youtube' src={data.strapiCommon!.YoutubeIcon!.url!} className={styles.navbar_icon} /></a>

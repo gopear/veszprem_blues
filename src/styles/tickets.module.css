@@ -9,6 +9,93 @@
     width: 75%;
 }
 
+
+.ticket_wrapper {
+    transition: all .2s ease-in-out;
+}
+
+.ticket_wrapper:hover {
+    filter:drop-shadow(10px 10px 0px rgb(100 100  100 / 1));
+}
+
+.ticket_base {
+    margin: 5px;
+    padding: 20px;
+    background-color: white;
+    /* min-height: 45vh;
+    min-width: 20vw; */
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: center;
+}
+
+
+.ticket_pass {
+    clip-path: polygon(0 0, 100% 10%, 100% 100%, 0 100%);
+}
+
+.ticket_inactive {
+    filter: invert(42%) sepia(5%) saturate(0%) hue-rotate(177deg) brightness(96%) contrast(86%);
+}
+
+.ticket_title {
+    margin-top: 50px;
+}
+
+.ticket_price {
+    margin-top: 50px;
+    color: rgb(100 100  100 / 1);
+}
+
+.ticket_btn {
+    align-self: center;
+    background-color: #CFE4FF;
+    border: none;
+    text-decoration: none;
+	color: black;
+	letter-spacing: 10px; 
+    text-indent: 10px;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.75rem;
+    padding: .90rem 1.65rem;
+    max-width: 460px;
+    transform: rotate(-2deg);
+    text-decoration: none;
+    margin: 50px 0;
+}
+
+
+.ticket_btn:focus, .ticket_btn:hover {
+    outline: 0;
+    color: black;
+}
+
+.ticket_btn:after {
+    transition: all .1s ease-in-out;
+    content: '';
+    position: absolute;
+    border: 5px solid black;
+    bottom: 4px;
+    left: 4px;
+    width: calc(100% - 1px);
+    height: calc(100% - 1px);
+}
+
+.ticket_btn:hover:after {
+    bottom: 2px;
+    left: 2px;
+}
+
+@media (max-width: 1650px) {
+    .ticket_btn {
+        letter-spacing: 5px;
+        text-indent: 5px;
+    }
+}
+
 @media (max-width: 1400px) {
     .wrapper {
         width: 90%;
@@ -21,12 +108,25 @@
     }
 }
 
-@media (max-width: 766px) {
+@media (max-width: 767px) {
     .wrapper {
         grid-template-columns: 1fr;
         gap: 5vw;
         width: 100%;
         padding-left: 0;
         padding-right: 0;
+    }
+
+    .ticket_btn {
+        text-indent: 24px;
+    }
+
+    .ticket_base {
+        margin: 0;
+    }
+
+    .ticket_wrapper {
+        margin-left: 5%;
+        margin-right: 5%;
     }
 }
