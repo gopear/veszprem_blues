@@ -13,9 +13,9 @@ export const onRenderBody: GatsbySSR['onRenderBody'] = ({ setHeadComponents }) =
       />,
       <link
         rel="preload"
-        href="/fonts/DrukText-Medium.otf"
+        href="/fonts/DrukText-Medium.woff2"
         as="font"
-        type="font/otf"
+        type="font/woff2"
         crossOrigin="anonymous"
         key="drukTextMedium"
       />
