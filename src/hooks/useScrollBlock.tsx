@@ -1,13 +1,16 @@
 import { useRef } from 'react';
 
-const safeDocument: Document = document;
-
 /**
  * Usage:
  * const [blockScroll, allowScroll] = useScrollBlock();
  */
-export const useScrollBlock = (): [() => void, () => void] => {
+export const useScrollBlock = (document?: Document): [() => void, () => void] => {
+	const safeDocument = document;
 	const scrollBlocked = useRef(false);
+
+	if (!safeDocument) {
+		return [() => {}, () => {}]
+	}
 	const html = safeDocument.documentElement;
 	const { body } = safeDocument;
 

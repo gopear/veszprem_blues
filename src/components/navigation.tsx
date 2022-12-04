@@ -1,5 +1,5 @@
 import { graphql, useStaticQuery } from 'gatsby'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Navbar, Container, Nav, Stack, DropdownButton, Dropdown } from "react-bootstrap"
 import { Link, Trans, useI18next } from 'gatsby-plugin-react-i18next'
 import * as styles from "../styles/layout.module.css";
@@ -10,7 +10,8 @@ const Navigation = () => {
   const [collapsed, setCollapsed] = useState(true)
   const { languages, originalPath, language } = useI18next();
 
-  const [ blockScroll, allowScroll ] = useScrollBlock();
+  const [ activeDom, setActiveDom ] = useState<Document>()
+  const [ blockScroll, allowScroll ] = useScrollBlock(activeDom);
 
   const data = useStaticQuery<Queries.HeaderCompQuery>(graphql`
     query HeaderComp {
@@ -31,15 +32,18 @@ const Navigation = () => {
     }
   `)
 
-  function handleNavBtn() {
-    setCollapsed(!collapsed);
-    console.log(collapsed)
-    if (!collapsed) {
-      allowScroll(); 
+  useEffect(() => {
+    setActiveDom(document);
+  }, [])
+
+  useEffect(() => {
+    if (collapsed) {
+      allowScroll();
     } else {
       blockScroll();
     }
-  }
+  }, [collapsed])
+  
 
   return (
     <Navbar fixed={'top'} expand='lg' className={styles.navbar_wrapper}>
@@ -60,7 +64,7 @@ const Navigation = () => {
               </DropdownButton>
             </Nav.Item>
           </Nav>
-        <button aria-controls='responsive-navbar-nav' className={`navbar-toggler ${collapsed ? 'collapsed' : ''}`} onClick={() => handleNavBtn()}>
+        <button aria-controls='responsive-navbar-nav' className={`navbar-toggler ${collapsed ? 'collapsed' : ''}`} onClick={() => setCollapsed(!collapsed)}>
           <span className="icon-bar"></span>
           <span className="icon-bar"></span>
           <span className="icon-bar"></span>
