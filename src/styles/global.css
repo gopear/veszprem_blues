@@ -15,15 +15,15 @@
 	src: url(/fonts/DrukText-Medium.woff2) format("woff2");
 }
 
+:root {
+    --doc-height: 100%;
+}
+
 
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-}
-
-html {
-    height: -webkit-fill-available;
 }
 
 
@@ -42,8 +42,8 @@ main {
 #gatsby-focus-wrapper {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
-    min-height: -webkit-fill-available;
+    height: 100vh;
+    height: var(--doc-height);
 }
 
 a {
@@ -102,6 +102,7 @@ a {
 		flex-direction: column;
         width: 100vw;
         height: 100vh;
+        height: var(--doc-height);
         left: 100%;
         top: 0;
         background-color: black;
@@ -117,7 +118,5 @@ a {
 
     .show {
         left: 0;
-        min-height: 100vh;
-        min-height: -webkit-fill-available;
     }
 }
