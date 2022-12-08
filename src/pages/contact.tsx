@@ -1,4 +1,5 @@
 import { graphql, HeadProps, PageProps } from 'gatsby';
+import { Trans } from 'gatsby-plugin-react-i18next';
 import React from 'react'
 import { Col, Container, Row, Stack } from 'react-bootstrap';
 import Layout from '../components/layout';
@@ -14,14 +15,14 @@ const Contact = ({ data }: PageProps<Queries.ContactPageQuery>)  => {
   ]
 
   return (
-    <Layout bg_color='white'>
-      <Container fluid >
+    <Layout bg_color='white' main_style={{display: 'flex'}}>
+      <Container fluid className={styles.container}>
         <Row className={styles.row}>
           <Col xs={12} md={10}>
             <Stack className={styles.main_wrapper}>
               {contact.map(c => (
                 <span key={c.email} className={styles.contact_el}>
-                    <h4 className={styles.text}>{c.text}</h4>
+                    <h4 className={styles.text}><Trans>{c.text}</Trans></h4>
                     <a href={`mailto:${c.email}`} className={styles.email}><h5>{c.email}</h5></a>
                 </span>
             ))}
