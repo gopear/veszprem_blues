@@ -9,7 +9,14 @@ import * as styles from "../../styles/artist.module.css"
 
 const Artist = ({ data }: PageProps<Queries.ArtistPageQuery>) => {
 
-  const spoti = data.strapiArtist?.Spotify ? new URL(data.strapiArtist?.Spotify) : undefined;
+  let spoti = undefined;
+  if (data.strapiArtist?.Spotify) {
+    try {
+      spoti = new URL(data.strapiArtist?.Spotify)
+    } catch (error) {
+      console.log(data.strapiArtist.Name, ' link error')
+    }
+  }
 
   return (
     <Layout>
