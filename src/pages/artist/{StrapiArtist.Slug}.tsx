@@ -18,6 +18,12 @@ const Artist = ({ data }: PageProps<Queries.ArtistPageQuery>) => {
     }
   }
 
+  if (!data.strapiArtist?.Description?.data) {
+    console.log(data.strapiArtist?.Name, ' description error')
+  }
+
+  const description = data.strapiArtist?.Description?.data ? data.strapiArtist.Description.data.childMarkdownRemark!.html! : ''
+
   return (
     <Layout>
       <Container fluid>
@@ -33,7 +39,7 @@ const Artist = ({ data }: PageProps<Queries.ArtistPageQuery>) => {
           </Row>
           <Row className={styles.data_wrapper}>
             <Col xs={12} sm={10} lg={data.strapiArtist?.Spotify ? 7 : 10}>
-              <div className={styles.description} dangerouslySetInnerHTML={{__html: data.strapiArtist!.Description!.data!.childMarkdownRemark!.html!}}/>
+              <div className={styles.description} dangerouslySetInnerHTML={{__html: description}}/>
             </Col>
             { spoti && 
               <Col xs={12} sm={10} lg={3}>
