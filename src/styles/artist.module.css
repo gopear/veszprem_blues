@@ -53,6 +53,28 @@
     white-space: pre-line;
 }
 
+.performance_wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.performance {
+    align-items: center;
+    background-color: black;
+    color: white;
+    padding: 20px;
+    margin: 10px;
+    text-align: center;
+}
+
+.performance .date {
+    white-space: pre;
+}
+
+.performance span {
+    margin-top: 3px;
+}
+
 .spotify {
 	display: block;
 	width: 100%;
@@ -84,6 +106,10 @@
     .name {
         font-size: 1.5em;
     }
+
+    .performance {
+        font-size: .9rem;
+    }
 }
 
 @media (max-width: 575px) {
@@ -91,7 +117,21 @@
         font-size: .8em;
     }
 
+    .performance_wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .performance {
+        font-size: .8rem;
+    }
+
     .name {
         font-size: 1em;
+    }
+}
+
+@media (max-width: 399px) { 
+    .performance {
+        font-size: .5rem;
     }
 }

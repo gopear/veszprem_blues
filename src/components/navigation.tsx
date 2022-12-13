@@ -66,14 +66,17 @@ const Navigation = () => {
               <Link to='/programme'><Trans>Program</Trans></Link>
             </Nav.Item>
             <Nav.Item>
+              <Link to='/artists'><Trans>Fellépők</Trans></Link>
+            </Nav.Item>
+            <Nav.Item>
               <Link to='/tickets'><Trans>Jegyek</Trans></Link>
             </Nav.Item>
             <Nav.Item>
               <Link to='/venue'><Trans>Helyszín</Trans></Link>
             </Nav.Item>
-            <Nav.Item>
+            {/* <Nav.Item>
               <Link to='/news'><Trans>Hírek</Trans></Link>
-            </Nav.Item>
+            </Nav.Item> */}
             <Nav.Item>
               <Link to='/contact'><Trans>Kapcsolat</Trans></Link>
             </Nav.Item>
