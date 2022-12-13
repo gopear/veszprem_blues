@@ -88,6 +88,12 @@
     margin-bottom: 2vw;
 }
 
+.table_row {
+    justify-content: center;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+
 @media (max-width: 1300px) {
     .artist_name {
         font-size: 1em;
