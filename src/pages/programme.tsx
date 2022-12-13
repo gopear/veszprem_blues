@@ -28,26 +28,26 @@ const Programme = ({ data }: PageProps<Queries.ProgrammePageQuery>) => {
   const dates = ["2023-04-13", "2023-04-14", "2023-04-15", "2023-04-16"]
   const stages = ["Ray Charles Ballroom", "Ma Rayney`s Black Bottom", "Boom Boom Room", "Hangvilla konferencia terem", "Papírkutya"]
 
-  const artists = data.allStrapiArtist.nodes.flatMap(a => a.Performance?.filter(p => p && p?.PerformanceDate && p?.PerformanceDuration && p?.PerformanceStart && p?.Stage)
-                                                                        .flatMap(p => (
-                                                                          { name: a.Name,
-                                                                            slug: a.Slug,
-                                                                            start: DateTime.fromISO(`${p!.PerformanceDate!}T${p!.PerformanceStart!}`, {locale: 'hu'}), 
-                                                                            duration: Duration.fromISOTime(p!.PerformanceDuration!),
-                                                                            date: p!.PerformanceDate!,
-                                                                            stage: p!.Stage!}
-                                                                          )))
-                                             .map(a => (
-                                              {
-                                                ...a,
-                                                end: a?.start.plus(a.duration)
-                                              }
-                                             )) as Artist[]
-  console.log(artists)
+  // const artists = data.allStrapiArtist.nodes.flatMap(a => a.Performance?.filter(p => p && p?.PerformanceDate && p?.PerformanceDuration && p?.PerformanceStart && p?.Stage)
+  //                                                                       .flatMap(p => (
+  //                                                                         { name: a.Name,
+  //                                                                           slug: a.Slug,
+  //                                                                           start: DateTime.fromISO(`${p!.PerformanceDate!}T${p!.PerformanceStart!}`, {locale: 'hu'}), 
+  //                                                                           duration: Duration.fromISOTime(p!.PerformanceDuration!),
+  //                                                                           date: p!.PerformanceDate!,
+  //                                                                           stage: p!.Stage!}
+  //                                                                         )))
+  //                                            .map(a => (
+  //                                             {
+  //                                               ...a,
+  //                                               end: a?.start.plus(a.duration)
+  //                                             }
+  //                                            )) as Artist[]
+  // console.log(artists)
   return (
     <Layout>
       <Container fluid>
-        {dates.map(d => {
+        {/* {dates.map(d => {
           
           const startTimes = artists.filter(a => a.date === d).map(a => a.start)
           const min = DateTime.min(...startTimes.filter(s => s.hour > 10))
@@ -70,17 +70,17 @@ const Programme = ({ data }: PageProps<Queries.ProgrammePageQuery>) => {
                   </tr>
                   {stages.map(s => (
                     <tr>
-                      {/* {artists.filter(a => a.performance.PerformanceDate === d && a.performance.Stage === s).map(a => (
+                      {artists.filter(a => a.performance.PerformanceDate === d && a.performance.Stage === s).map(a => (
                         <td>{a?.name}</td>
-                      ))} */}
+                      ))}
                     </tr>
                   ))}
                   </tbody>
                 </table>
             </Row>
           )
-})}
-        {/* {daysNorm.map((d,idx) => (
+})} */}
+        {daysNorm.map((d,idx) => (
           <Row key={idx} className={styles.table_row}>
             <Col xs={12} md={10}>
               <h2><Trans>{days[idx]}</Trans></h2>
@@ -88,7 +88,7 @@ const Programme = ({ data }: PageProps<Queries.ProgrammePageQuery>) => {
               <img src={data[d]?.publicURL!} alt={d}/>
             </Col>
           </Row>
-        ))} */}
+        ))}
         
       </Container>
     </Layout>
