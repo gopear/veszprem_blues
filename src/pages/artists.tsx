@@ -5,7 +5,7 @@ import React from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 import Layout from '../components/layout'
 import { SEO } from '../components/seo'
-import * as styles from "../styles/program.module.css"
+import * as styles from "../styles/artists.module.css"
 
 const Artists = ({ data }: PageProps<Queries.ArtistsPageQuery>) => {
   // return (
