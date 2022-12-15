@@ -3,12 +3,18 @@
     justify-content: center;
     margin-top: 2vh;
     margin-bottom: 2vh;
+    min-width: 0;
+}
+
+.table_wrapper_col {
+    min-width: 0;
 }
 
 .table {
 	background-color: #EEEEEE !important;
 	text-align: center !important;
 }
+
 
 .table thead {
 	background-color: rgb(121, 121, 121) !important;
@@ -17,7 +23,7 @@
 
 .header_cell {
     vertical-align: middle;
-	font-size: 2.5em !important;
+	font-size: clamp(1em, 2vw, 2.5em) !important;
 	font-weight: bold !important;
 	color: #FFFFFF !important;
 	text-align: center !important;
@@ -36,19 +42,20 @@
 }
 
 .artist_name, .artist_name:hover {
-    font-size: 1.8rem !important;
+    font-size: clamp(1em, 1.3vw, 1.8em)!important;
     color: black !important;
 }
 
 .nationality {
-    font-size: 1.2rem;
+    font-size: clamp(.5em, 1vw, 1.2em);
 }
+
 
 .time_cell {
     background-color: black !important;
     color: white !important;
     border: 0 !important;
-    font-size: 1.4em !important;
+    font-size: clamp(.8em, 1.3vw, 1.4em) !important;
     padding: 5px 20px !important;
 }
 
@@ -56,7 +63,3 @@
     border: solid 1px rgb(121, 121, 121) !important;
 	padding: 0px 10px !important;
 }
-
- 
-
-

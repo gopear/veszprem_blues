@@ -87,11 +87,18 @@ const Programme = ({ data }: PageProps<Queries.ProgrammePageQuery>) => {
           }
           return (
             <Row key={d} className={styles.table_wrapper_row}>
-              <Col xs={10}>
+              <Col xs={11} xl={10} className={styles.table_wrapper_col}>
 
                 <h2>{days[dates.indexOf(d)]}</h2>
                 <h3>{d}</h3>
-                <Table className={styles.table} responsive>
+                <Table className={styles.table} responsive='md'>
+                  <colgroup>
+                    <col style={{width: '10%'}}/>
+                    <col style={{width: '26.6%'}}/>
+                    <col style={{width: '26.6%'}}/>
+                    <col style={{width: '26.6%'}}/>
+                    <col style={{width: '10%'}}/>
+                  </colgroup>
                   <thead>
                     <tr>
                       <th style={{border: 0}} />
