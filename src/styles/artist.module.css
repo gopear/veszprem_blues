@@ -48,6 +48,12 @@
     padding: 5vh;
 }
 
+.data_wrapper_col {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 .description {
     font-family: 'Druk Text';
     white-space: pre-line;
@@ -63,7 +69,8 @@
     background-color: black;
     color: white;
     padding: 20px;
-    margin: 10px;
+    margin: 0 10px;
+    border-radius: 10px;
     text-align: center;
 }
 
@@ -78,7 +85,8 @@
 .spotify {
 	display: block;
 	width: 100%;
-	height: 400px;
+	min-height: 400px;
+    height: 100%;
 	flex-grow: 1;
 }
 

@@ -43,8 +43,6 @@ const Artist = ({ data }: PageProps<Queries.ArtistPageQuery>) => {
   return (
     <Layout>
       <Container fluid>
-        { data.strapiArtist ?
-        <>
           <Row className={styles.img_row_wrapper}>
             <Col xs={11} md={8} className={styles.img_wrapper}>
               <GatsbyImage alt={data.strapiArtist!.Name!} image={data.strapiArtist!.Image!.localFile!.childImageSharp!.gatsbyImageData!} className={styles.img} />
@@ -54,7 +52,7 @@ const Artist = ({ data }: PageProps<Queries.ArtistPageQuery>) => {
             </Col>
           </Row>
           <Row className={styles.data_wrapper}>
-            <Col xs={12} sm={10} lg={data.strapiArtist?.Spotify ? 7 : 10}>
+            <Col xs={12} sm={10} lg={data.strapiArtist?.Spotify ? 7 : 10} className={styles.data_wrapper_col}>
               <div className={styles.description} dangerouslySetInnerHTML={{__html: description}}/>
               {performance ? 
                 <div className={styles.performance_wrapper}>
@@ -80,20 +78,6 @@ const Artist = ({ data }: PageProps<Queries.ArtistPageQuery>) => {
               </Col>
             }
           </Row>
-          { performance ? 
-            <Row>
-              <Col xs={12} sm={10}>
-                
-              </Col>
-            </Row>
-            :
-            null
-          }
-          
-        </>
-        :
-          <UnderConstruction url={data.wip!.publicURL}/>
-        }
       </Container>
     </Layout>
   )

@@ -219,4 +219,8 @@
         letter-spacing: 10px;
         text-indent: 10px;
     }
+
+    .sponsor_wrapper img {
+        width: 100%;
+    }
 }

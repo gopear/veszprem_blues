@@ -94,16 +94,16 @@ const Programme = ({ data }: PageProps<Queries.ProgrammePageQuery>) => {
                 <Table className={styles.table} responsive='md'>
                   <colgroup>
                     <col style={{width: '10%'}}/>
-                    <col style={{width: '26.6%'}}/>
-                    <col style={{width: '26.6%'}}/>
-                    <col style={{width: '26.6%'}}/>
-                    <col style={{width: '10%'}}/>
+                    <col style={{width: `${(100-10)/3}%`}}/>
+                    <col style={{width: `${(100-10)/3}%`}}/>
+                    <col style={{width: `${(100-10)/3}%`}}/>
+                    {/* <col style={{width: '10%'}}/> */}
                   </colgroup>
                   <thead>
                     <tr>
-                      <th style={{border: 0}} />
+                      <th className={styles.header_cell} />
                       {stages.map(s => <th key={s} className={styles.header_cell}>{s}</th>)}
-                      <th style={{border: 0}}/>
+                      {/* <th style={{border: 0}}/> */}
                     </tr>
                   </thead>
                   <tbody>
@@ -112,7 +112,7 @@ const Programme = ({ data }: PageProps<Queries.ProgrammePageQuery>) => {
                         <tr key={c_idx}>
                           <td className={styles.time_cell}>{interval[c_idx].toLocaleString(DateTime.TIME_24_SIMPLE)}</td>
                           {c}
-                          <td className={styles.time_cell}>{interval[c_idx].toLocaleString(DateTime.TIME_24_SIMPLE)}</td>
+                          {/* <td className={styles.time_cell}>{interval[c_idx].toLocaleString(DateTime.TIME_24_SIMPLE)}</td> */}
                         </tr>
                       )
                     })}

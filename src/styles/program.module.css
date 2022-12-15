@@ -23,10 +23,16 @@
 
 .header_cell {
     vertical-align: middle;
-	font-size: clamp(1em, 2vw, 2.5em) !important;
+	font-size: clamp(1em, 1.5vw, 2.5em) !important;
 	font-weight: bold !important;
 	color: #FFFFFF !important;
 	text-align: center !important;
+}
+
+th:first-child, td:first-child {
+    position:sticky;
+    left:0px;
+    
 }
 
 .empty_cell {
@@ -42,7 +48,7 @@
 }
 
 .artist_name, .artist_name:hover {
-    font-size: clamp(1em, 1.3vw, 1.8em)!important;
+    font-size: clamp(.8em, 1.3vw, 1.8em)!important;
     color: black !important;
 }
 
