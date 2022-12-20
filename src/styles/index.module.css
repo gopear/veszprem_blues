@@ -132,6 +132,11 @@
     background-color: white;
 }
 
+.main_text {
+    color: white;
+    text-align: center;
+}
+
 .placeholder {
     overflow: hidden;
     background-color: black;

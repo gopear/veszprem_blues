@@ -27,13 +27,18 @@ const IndexPage = ({ data } : PageProps<Queries.IndexPageQuery>) => {
             <Link to="/tickets" className={styles.jegyek}><Trans>Jegyek</Trans></Link>
           </Col>
         </Row>
-        <Row className={styles.content_wrapper}>
+        {/* <Row className={styles.content_wrapper}>
           <Col xs={12} lg={{span: 7, offset: 5}} className={styles.fellepo_wrapper_col}>
             <ul>
               {data.strapiIndex!.Artists!.map(artist => (
-                <li key={artist!.Artist!.Slug!}><Link to={artist!.Artist!.gatsbyPath!}>{artist!.Artist!.Name!}</Link></li>
+                <li key={artist!.Slug!}><Link to={artist!.gatsbyPath!}>{artist!.Name!}</Link></li>
               ))}
             </ul>
+          </Col>
+        </Row> */}
+        <Row className={styles.content_wrapper}>
+          <Col xs={12} lg={{span: 7, offset: 5}} className={styles.fellepo_wrapper_col}>
+            <h1 className={styles.main_text}>{data.strapiIndex?.Text}</h1>
           </Col>
         </Row>
       </Container>
@@ -73,14 +78,13 @@ query IndexPage($language: String!) {
       }
     }
     Artists {
-      Artist {
-        gatsbyPath(
-          filePath: "/artist/{StrapiArtist.Slug}"
-        )
-        Name
-        Slug
-      }
+      gatsbyPath(
+        filePath: "/artist/{StrapiArtist.Slug}"
+      )
+      Name
+      Slug
     }
+    Text
   }
 }
 `;

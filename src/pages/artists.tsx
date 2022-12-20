@@ -25,16 +25,15 @@ const Artists = ({ data }: PageProps<Queries.ArtistsPageQuery>) => {
           <Col xs={10}>
             <div className={styles.main_wrapper}>
               {data.strapiProgramme!.Artists!.map((artist) => (
-                artist?.Artist &&
-                  <Link key={artist!.Artist.Slug!} to={artist!.Artist!.gatsbyPath!} className={styles.artist_wrapper}>
+                artist &&
+                  <Link key={artist.Slug!} to={artist!.gatsbyPath!} className={styles.artist_wrapper}>
                     <div className={styles.artist_img_wrapper}>
-                      <GatsbyImage alt={artist!.Artist.Name!} image={artist!.Artist.Image!.localFile!.childImageSharp!.gatsbyImageData!} className={styles.artist_image}/>
+                      <GatsbyImage alt={artist!.Name!} image={artist!.Image!.localFile!.childImageSharp!.gatsbyImageData!} className={styles.artist_image}/>
                       <div className={styles.artist_name_wrapper}> 
                         <h4 className={styles.artist_name}>
-                          {artist!.Artist.Name!}
+                          {artist!.Name!}
                         </h4>
                       </div>
-                    
                     </div>
                   </Link>
               ))}
@@ -66,24 +65,22 @@ query ArtistsPage($language: String!) {
   }
   strapiProgramme {
     Artists {
-      Artist {
-        gatsbyPath(
-          filePath: "/artist/{StrapiArtist.Slug}"
-        )
-        Slug
-        Name
-        Image {
-          localFile {
-            childImageSharp {
-              gatsbyImageData (
-                aspectRatio: 1,
-                layout: FULL_WIDTH,
-                transformOptions: {
-                  cropFocus: ENTROPY,
-                  fit: COVER
-                }
-              )
-            }
+      gatsbyPath(
+        filePath: "/artist/{StrapiArtist.Slug}"
+      )
+      Slug
+      Name
+      Image {
+        localFile {
+          childImageSharp {
+            gatsbyImageData (
+              aspectRatio: 1,
+              layout: FULL_WIDTH,
+              transformOptions: {
+                cropFocus: ENTROPY,
+                fit: COVER
+              }
+            )
           }
         }
       }
