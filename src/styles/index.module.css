@@ -135,6 +135,7 @@
 .main_text {
     color: white;
     text-align: center;
+    font-size: 1.4vw;
 }
 
 .placeholder {
@@ -179,7 +180,7 @@
         align-self: center;
     }
 
-    .fellepo_wrapper_col li {
+    .fellepo_wrapper_col li, .main_text {
         font-size: 3vw;
     }
 
@@ -215,6 +216,10 @@
 
     .sponsor_wrapper img {
         width: 4.5rem;
+    }
+
+    .main_text {
+        font-size: 4vw;
     }
 }
 
