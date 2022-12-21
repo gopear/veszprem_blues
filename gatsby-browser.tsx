@@ -1,8 +1,8 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import "./src/styles/global.css"
 import { GatsbyBrowser } from 'gatsby';
 import React, { useEffect } from 'react';
 import { SSRProvider } from 'react-bootstrap';
-import "./src/styles/global.css"
 
 const Wrapper = ({ element } : { element : React.ReactElement<any, string | React.JSXElementConstructor<any>>}) => {
   useEffect(() => {

@@ -132,6 +132,12 @@
     background-color: white;
 }
 
+.main_text {
+    color: white;
+    text-align: center;
+    font-size: 1.4vw;
+}
+
 .placeholder {
     overflow: hidden;
     background-color: black;
@@ -174,7 +180,7 @@
         align-self: center;
     }
 
-    .fellepo_wrapper_col li {
+    .fellepo_wrapper_col li, .main_text {
         font-size: 3vw;
     }
 
@@ -211,6 +217,10 @@
     .sponsor_wrapper img {
         width: 4.5rem;
     }
+
+    .main_text {
+        font-size: 4vw;
+    }
 }
 
 @media (max-width: 400px) {
@@ -218,5 +228,9 @@
         font-size: 12px;
         letter-spacing: 10px;
         text-indent: 10px;
+    }
+
+    .sponsor_wrapper img {
+        width: 100%;
     }
 }
