@@ -29,7 +29,9 @@ const Programme = ({ data }: PageProps<Queries.ProgrammePageQuery>) => {
   const days = ["csütörtök", "péntek", "szombat", "vasárnap"]
   const daysNorm: Days[] = ["csutortok", "pentek", "szombat", "vasarnap"]
   const dates = ["2023-04-13", "2023-04-14", "2023-04-15", "2023-04-16"]
-  const stages = ["Ray Charles Ballroom", "Ma Rayney’s Black Bottom", "Boom Boom Room"]//, "Hangvilla konferencia terem", "Papírkutya"]
+  const stagesInBackend = ["Ray Charles Ballroom", "Ma Rayney’s Black Bottom", "Boom Boom Room"]//, "Hangvilla konferencia terem", "Papírkutya"]
+  const stagesToDisplay = ["Ray Charles Ballroom", "Ma Rainey's Black Bottom", "Boom Boom Room"]//, "Hangvilla konferencia terem", "Papírkutya"]
+  
 
 
   const { navigate } = useI18next()
@@ -62,7 +64,7 @@ const Programme = ({ data }: PageProps<Queries.ProgrammePageQuery>) => {
 
 
           const content: Content[][] = interval.map(i => (
-            stages.map(s => {
+            stagesInBackend.map(s => {
               const artist = artists.find(a => a.date === d && a.stage === s && a.start.equals(i))
               return artist ?
                   <td rowSpan={artist.duration.toMillis() / 900000} className={styles.artist_cell} onClick={() => navigate(artist.link)} >
@@ -102,7 +104,7 @@ const Programme = ({ data }: PageProps<Queries.ProgrammePageQuery>) => {
                   <thead>
                     <tr>
                       <th className={styles.header_cell} />
-                      {stages.map(s => <th key={s} className={styles.header_cell}>{s}</th>)}
+                      {stagesToDisplay.map(s => <th key={s} className={styles.header_cell}>{s}</th>)}
                       {/* <th style={{border: 0}}/> */}
                     </tr>
                   </thead>
