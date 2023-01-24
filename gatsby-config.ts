@@ -76,7 +76,7 @@ const strapiConfig = {
 const config: GatsbyConfig = {
   siteMetadata: {
     title: `Veszprém Blues Fesztivál`,
-    siteUrl: `https://www.yourdomain.tld`
+    siteUrl: `https://veszpremblues.hu`
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
   // If you use VSCode you can also use the GraphQL plugin
@@ -154,7 +154,7 @@ const config: GatsbyConfig = {
       options: {
         languages,
         defaultLanguage,
-        siteUrl: 'https://www.yourdomain.tld',
+        siteUrl: 'https://veszpremblues.hu',
         i18nextOptions: {
           // debug: true,
           fallbackLng: defaultLanguage,
@@ -169,7 +169,7 @@ const config: GatsbyConfig = {
     {
       resolve: `gatsby-plugin-facebook-pixel`,
       options: {
-        pixelId: "1483340128818505",
+        pixelId: "865949118057852",
       },
     },
   ]
