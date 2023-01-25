@@ -23,7 +23,7 @@ const Jegyek = ({ data }: PageProps<Queries.TicketsPageQuery>) => {
                       <h4><Trans>{ticket!.Type!}</Trans></h4>
                   </span>
                   <h4 className={styles.ticket_price}>{formatter.format(ticket!.Price!)} HUF</h4>
-                  <a className={styles.ticket_btn} href='https://cooltix.hu/event/637b299999c9e71b0efafb4e' style={{pointerEvents: !ticket!.Available! ? 'none' : 'inherit'}}>
+                  <a className={styles.ticket_btn} href='https://tixa.hu/veszpremblues' style={{pointerEvents: !ticket!.Available! ? 'none' : 'inherit'}}>
                     <Trans>MEGVESZEM</Trans>
                   </a>
                 </div>
