@@ -30,7 +30,7 @@ const Programme = ({ data }: PageProps<Queries.ProgrammePageQuery>) => {
   const daysNorm: Days[] = ["csutortok", "pentek", "szombat", "vasarnap"]
   const dates = ["2023-04-13", "2023-04-14", "2023-04-15", "2023-04-16"]
   const stagesInBackend = ["Ray Charles Ballroom", "Ma Rayney’s Black Bottom", "Boom Boom Room"]//, "Hangvilla konferencia terem", "Papírkutya"]
-  const stagesToDisplay = ["Ray Charles Ballroom (Hangvilla)", "Ma Rainey's Black Bottom (Expresszó)", "Boom Boom Room (étterem)"]//, "Hangvilla konferencia terem", "Papírkutya"]
+  const stagesToDisplay = ["Ray Charles Ballroom (Hangvilla Nagyterem)", "Ma Rainey's Black Bottom (Expresszó)", "Boom Boom Room (Hangvilla Étterem)"]//, "Hangvilla konferencia terem", "Papírkutya"]
   
 
 
