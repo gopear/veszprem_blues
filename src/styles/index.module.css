@@ -45,6 +45,11 @@
     filter: invert();
 }
 
+.sponsor_highlight img {
+    width: 100%;
+}
+
+
 .hero_content {
     margin-top: -100px;
     display: flex;
@@ -214,8 +219,8 @@
         width: 80vw;
     }
 
-    .sponsor_wrapper img {
-        width: 4.5rem;
+    .sponsor_highlight img {
+        width: 100%;
     }
 
     .main_text {
@@ -228,9 +233,5 @@
         font-size: 12px;
         letter-spacing: 10px;
         text-indent: 10px;
-    }
-
-    .sponsor_wrapper img {
-        width: 100%;
     }
 }

@@ -8,19 +8,31 @@ import * as styles from "../styles/index.module.css"
 
 const IndexPage = ({ data } : PageProps<Queries.IndexPageQuery>) => {
 
+  const highlightedSponsors = data.strapiIndex?.Sponsors?.filter(s => s?.Highlight === true);
+  const nonHighlightedSponsors = data.strapiIndex?.Sponsors?.filter(s => s?.Highlight === false);
+
   return (
     <Layout>
       <Container fluid>
         <Row className={styles.wrapper}>
           <Col xs={12} lg={6} className={styles.hero_logo_col}>
             <img src={data.strapiIndex!.Logo!.url!} alt='Hero logo' className={styles.hero_logo}/>
-            <Stack direction="horizontal" className={styles.sponsor_wrapper}>
-                {data.strapiIndex?.Sponsors?.map(s => (
-                  <a key={s!.Link!} href={s!.Link!}>
-                    <img alt={s!.Link!} src={s!.Logo!.url!}/>
-                  </a>
-                ))}
-            </Stack>
+            <div>
+              <Stack direction="horizontal" className={`${styles.sponsor_wrapper} ${styles.sponsor_highlight}`}>
+                  {highlightedSponsors?.map(s => (
+                    <a key={s!.Link!} href={s!.Link!}>
+                      <img alt={s!.Link!} src={s!.Logo!.url!}/>
+                    </a>
+                  ))}
+              </Stack>
+              <Stack direction="horizontal" className={styles.sponsor_wrapper}>
+                  {nonHighlightedSponsors?.map(s => (
+                    <a key={s!.Link!} href={s!.Link!}>
+                      <img alt={s!.Link!} src={s!.Logo!.url!}/>
+                    </a>
+                  ))}
+              </Stack>
+            </div>
           </Col>
           <Col xs={12} md={10} lg={{ span: 6, offset: 5 }} className={styles.hero_content} >
             <img src={data.strapiIndex!.Hero!.url!} alt='Hero' className={styles.hero}/>
@@ -72,6 +84,7 @@ query IndexPage($language: String!) {
       url
     }
     Sponsors {
+      Highlight
       Link
       Logo {
         url
