@@ -16,7 +16,7 @@
     top: 0;
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    height: var(--doc-height);
     justify-content: space-evenly;
     align-items: center;
     clip-path: polygon(0 0, 100% 0, 75% 100%, 0% 100%);
@@ -45,8 +45,12 @@
     filter: invert();
 }
 
+.sponsor_highlight {
+    justify-content: center;
+}
+
 .sponsor_highlight img {
-    width: 100%;
+    width: 25vh;
 }
 
 
@@ -219,9 +223,9 @@
         width: 80vw;
     }
 
-    .sponsor_highlight img {
+    /* .sponsor_highlight img {
         width: 100%;
-    }
+    } */
 
     .main_text {
         font-size: 4vw;
