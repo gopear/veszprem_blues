@@ -59,7 +59,7 @@ const Programme = ({ data }: PageProps<Queries.ProgrammePageQuery>) => {
 
           const startTimes = artists.filter(a => a.date === d).map(a => ({ start: a.start, duration: a.duration }))
           const min = DateTime.min(...startTimes.map(s => s.start)).minus({ minutes: 15 })
-          const max = DateTime.max(...startTimes.map(s => s.start.plus(s.duration))).plus({ minutes: 15 })
+          const max = DateTime.max(...startTimes.map(s => s.start.plus(s.duration))).plus({ minutes: 30 })
           const interval = Interval.fromDateTimes(min, max).splitBy(Duration.fromDurationLike({ minutes: 15 })).map(i => i.start)
 
 
@@ -67,9 +67,13 @@ const Programme = ({ data }: PageProps<Queries.ProgrammePageQuery>) => {
             stagesInBackend.map(s => {
               const artist = artists.find(a => a.date === d && a.stage === s && a.start.equals(i))
               return artist ?
-                  <td rowSpan={artist.duration.toMillis() / 900000} className={styles.artist_cell} onClick={() => navigate(artist.link)} >
+                  <td rowSpan={artist.duration.toMillis() / 900000 + 1} className={styles.artist_cell} onClick={() => navigate(artist.link)} >
                     <div className={styles.artist_name}>{artist.name}</div>
-                    <div className={styles.nationality}>({artist.nationality})</div>
+                    {artist.nationality ?
+                      <div className={styles.nationality}>({artist.nationality})</div>
+                      :
+                      null
+                    }
                   </td> 
                 : 
                 <td className={styles.empty_cell}/>
@@ -113,6 +117,11 @@ const Programme = ({ data }: PageProps<Queries.ProgrammePageQuery>) => {
                       return (
                         <tr key={c_idx}>
                           <td className={styles.time_cell}>{interval[c_idx].toLocaleString(DateTime.TIME_24_SIMPLE)}</td>
+                          {/* {c_idx !== 0 && c_idx !== content.length-1 ?
+                            <td className={styles.time_cell}>{interval[c_idx].toLocaleString(DateTime.TIME_24_SIMPLE)}</td>
+                            :
+                            <td className={styles.time_cell}>‎</td>
+                          } */}
                           {c}
                           {/* <td className={styles.time_cell}>{interval[c_idx].toLocaleString(DateTime.TIME_24_SIMPLE)}</td> */}
                         </tr>
