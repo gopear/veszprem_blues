@@ -68,6 +68,16 @@ const strapiConfig = {
           locale: 'all'
         }
       }
+    },
+    {
+      singularName: 'footer',
+      queryParams: {
+        populate: {
+          Sponsors: {
+            populate: "*"
+          }
+        }
+      }
     }
   ]
 };

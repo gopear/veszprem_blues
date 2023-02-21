@@ -87,6 +87,11 @@
     color: gray;
 }
 
+.footer_sponsor {
+    height: 40px;
+    filter: brightness(0) saturate(100%) invert(55%) sepia(0%) saturate(0%) hue-rotate(199deg) brightness(91%) contrast(94%);
+}
+
 @media (max-width: 1399px) {
     .navbar_wrapper {
         padding: 10px 0;
@@ -121,5 +126,11 @@
 
     .navbar_wrapper {
         padding: 10px 10%;
+    }
+}
+
+@media (max-width: 576px) {
+    .footer_sponsor {
+        height: 28px;
     }
 }
