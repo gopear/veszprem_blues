@@ -1,5 +1,156 @@
 .workshop_wrapper {
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
-    padding: 15px 0;
+    padding: 60px 70px;
+    padding-top: 100px;
+    padding-bottom: 80px;
+    background-color: white;
+    clip-path: polygon(0 9%, 93% 13%, 100% 100%, 3% 92%);
+}
+
+.day {
+    margin-bottom: -50px;
+}
+
+.ws_content {
+    font-family: 'Druk Text';
+    font-size: 1.4rem;
+    text-align: justify;
+    width: 95%;
+    
+}
+
+.ws_content_wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.btn_wrapper {
+    margin-top: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.jegyek {
+    position: relative;
+    background-color: black;
+    border: 0 solid white;
+    text-decoration: none;
+    color: white;
+    letter-spacing: 40px;
+    text-indent: 40px;
+    font-size: 1em;
+    font-weight: 700;
+    line-height: 1.75rem;
+    padding: .75em 1.65em;
+    transform: rotate(-2deg);
+}
+
+.jegyek:hover {
+    color: white;
+}
+
+.jegyek:focus {
+    outline: 0;
+}
+
+.jegyek:after {
+    transition: all .1s ease-in-out;
+    content: '';
+    position: absolute;
+    border: 5px solid #cfe4ff;
+    bottom: 4px;
+    left: 4px;
+    width: calc(100% - 1px);
+    height: calc(100% - 1px);
+}
+
+.jegyek:hover:after {
+    bottom: 2px;
+    left: 2px;
+}
+
+
+.container {
+    width: 80%;
+    padding: 20px 0;
+}
+
+.media {
+	display: block;
+	width: 90%;
+    height: 100%;
+	min-height: 400px;
+	flex-grow: 1;
+} 
+
+.media_col {
+    display: flex;
+
+}
+
+@media (max-width: 1750px) {
+    .jegyek {
+        letter-spacing: 20px;
+        text-indent: 20px;
+    }
+}
+
+@media (max-width: 1400px) {
+
+    .workshop_wrapper {
+        padding-top: 150px;
+    }
+
+    .day {
+        margin-bottom: -80px;
+    }
+
+    .jegyek {
+        letter-spacing: 40px;
+        text-indent: 40px;
+        margin-top: 15px;
+        margin-bottom: 50px;
+    }
+
+    .media_col {
+        padding-bottom: 30px;
+    }
+}
+
+@media (max-width: 991px) {
+
+    .jegyek {
+        letter-spacing: 20px;
+        text-indent: 20px;
+    }
+
+    .media {
+        height: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container  {
+        width: 90%;
+    }
+
+    .day {
+        margin-bottom: auto;
+    }
+
+    .workshop_wrapper {
+        clip-path: none;
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    .jegyek {
+        font-size: .7em;
+    }
+}
+
+@media (max-width: 576px) {
+    .ws_content {
+        font-size: 1.1rem;
+    }
+
 }
