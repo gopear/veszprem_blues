@@ -72,6 +72,9 @@ const Navigation = () => {
               <Link to='/tickets'><Trans>Jegyek</Trans></Link>
             </Nav.Item>
             <Nav.Item>
+              <Link to='/workshops'><Trans>Workshopok</Trans></Link>
+            </Nav.Item>
+            <Nav.Item>
               <Link to='/venue'><Trans>Helyszín</Trans></Link>
             </Nav.Item>
             {/* <Nav.Item>

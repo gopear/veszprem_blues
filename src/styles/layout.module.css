@@ -4,7 +4,7 @@
 
 .navbar_wrapper {
     transition: .3s ease;
-    padding: 10px 10%;
+    padding: 10px 5%;
     z-index: 10 !important;
     background-color: black;
     
@@ -92,13 +92,32 @@
     filter: brightness(0) saturate(100%) invert(55%) sepia(0%) saturate(0%) hue-rotate(199deg) brightness(91%) contrast(94%);
 }
 
-@media (max-width: 1399px) {
+@media (max-width: 1590px) {
+    .navbar_menu_wrapper a {
+        font-size: .9rem;
+    }
+}
+
+@media (max-width: 1412px) {
+    .navbar_menu_wrapper a {
+        font-size: .8rem;
+    }
+}
+
+@media (max-width: 1309px) {
     .navbar_wrapper {
         padding: 10px 0;
     }
+}
 
+@media (max-width: 1182px) {
     .navbar_menu_wrapper a {
-        font-size: .9rem;
+        font-size: .7rem;
+        padding: 8px 12px;
+    }
+
+    .navbar_icon {
+        height: 30px;
     }
 }
 
@@ -125,7 +144,7 @@
     }
 
     .navbar_wrapper {
-        padding: 10px 10%;
+        padding: 10px 5px;
     }
 }
 

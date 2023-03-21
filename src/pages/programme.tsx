@@ -29,11 +29,9 @@ const Programme = ({ data }: PageProps<Queries.ProgrammePageQuery>) => {
   const days = ["csütörtök", "péntek", "szombat", "vasárnap"]
   const daysNorm: Days[] = ["csutortok", "pentek", "szombat", "vasarnap"]
   const dates = ["2023-04-13", "2023-04-14", "2023-04-15", "2023-04-16"]
-  const stagesInBackend = ["Ray Charles Ballroom", "Ma Rayney’s Black Bottom", "Boom Boom Room"]//, "Hangvilla konferencia terem", "Papírkutya"]
-  const stagesToDisplay = ["Ray Charles Ballroom (Hangvilla Nagyterem)", "Ma Rainey's Black Bottom (Expresszó)", "Boom Boom Room (Hangvilla Étterem)"]//, "Hangvilla konferencia terem", "Papírkutya"]
+  const stagesInBackend = ["Ray Charles Ballroom", "Ma Rayney’s Black Bottom", "Boom Boom Room", "Papírkutya (ingyenes)"]//, "Hangvilla konferenciaterem"]
+  const stagesToDisplay = ["Ray Charles Ballroom (Hangvilla Nagyterem)", "Ma Rainey's Black Bottom (Expresszó)", "Boom Boom Room (Hangvilla Étterem)", "Papírkutya (ingyenes)"]//, "Hangvilla konferencia-terem"]
   
-
-
   const { navigate } = useI18next()
 
   const artists = data.allStrapiArtist.nodes.flatMap(a => a.Performance?.filter(p => p && p?.PerformanceDate && p?.PerformanceDuration && p?.PerformanceStart && p?.Stage)
@@ -54,7 +52,7 @@ const Programme = ({ data }: PageProps<Queries.ProgrammePageQuery>) => {
 
   return (
     <Layout>
-      <Container fluid>
+      <Container fluid className={styles.container}>
         {dates.map(d => {
 
           const startTimes = artists.filter(a => a.date === d).map(a => ({ start: a.start, duration: a.duration }))
@@ -93,16 +91,19 @@ const Programme = ({ data }: PageProps<Queries.ProgrammePageQuery>) => {
           }
           return (
             <Row key={d} className={styles.table_wrapper_row}>
-              <Col xs={11} xl={10} className={styles.table_wrapper_col}>
-
-                <h2><Trans>{days[dates.indexOf(d)]}</Trans></h2>
-                <h3>{d}</h3>
-                <Table className={styles.table} responsive='md'>
+              <Col xs={12} xl={10} className={styles.table_wrapper_col}>
+                <div className={styles.date}>
+                  <h2><Trans>{days[dates.indexOf(d)]}</Trans></h2>
+                  <h3>{d}</h3>
+                </div>
+                <Table className={styles.table} responsive='lg'>
                   <colgroup>
                     <col style={{width: '10%'}}/>
-                    <col style={{width: `${(100-10)/3}%`}}/>
-                    <col style={{width: `${(100-10)/3}%`}}/>
-                    <col style={{width: `${(100-10)/3}%`}}/>
+                    <col style={{width: `${(100-10)/4}%`}}/>
+                    <col style={{width: `${(100-10)/4}%`}}/>
+                    <col style={{width: `${(100-10)/4}%`}}/>
+                    <col style={{width: `${(100-10)/4}%`}}/>
+                    {/* <col style={{width: `${(100-10)/4}%`}}/> */}
                     {/* <col style={{width: '10%'}}/> */}
                   </colgroup>
                   <thead>
