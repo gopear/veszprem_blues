@@ -41,7 +41,7 @@ const Workshops = ({ data }: PageProps<Queries.WorkshopsPageQuery>) => {
                                                   <h4 className={styles.ws_title}>{w.Name}</h4>
                                                   <div dangerouslySetInnerHTML={{__html: w.Description!.data!.childMarkdownRemark!.html!}} className={styles.ws_content}/>
                                                   <div className={styles.btn_wrapper}>
-                                                    <a className={styles.jegyek} href={w.TicketLink!}>
+                                                    <a className={styles.jegyek} href={w.TicketLink!} target="_blank">
                                                         <Trans>MEGVESZEM</Trans>
                                                     </a>
                                                   </div>
@@ -85,7 +85,7 @@ query WorkshopsPage($language: String!) {
   seo: locale(language: {eq: $language}, ns: {eq: "programme"}) {
     data
   }
-  allStrapiProgram {
+  allStrapiProgram(filter: {locale: {eq: $language}}) {
     nodes {
       Name
       TicketLink
