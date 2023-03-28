@@ -41,12 +41,12 @@ const Footer = () => {
     <Container as="footer" fluid className={styles.footer_wrapper}>
       {data.strapiFooter?.Sponsors && data.strapiFooter.Sponsors.length > 0 ?
         <Row className={styles.footer_row} style={{marginBottom: 20}}>
-          <Col xs={"auto"}>
-            <Stack direction='horizontal' gap={4}>
+          <Col xs={8} sm={10} md={8} lg={6}>
+            <div className={styles.footer_sponsor_grid}>
               {data.strapiFooter.Sponsors.map(s => 
-                <a href={s?.Link!}><img alt={s?.Name!} src={s?.Logo?.url!} className={styles.footer_sponsor}></img></a>
+                <a href={s?.Link!} className={styles.footer_sponsor_wrapper}><img alt={s?.Name!} src={s?.Logo?.url!} className={styles.footer_sponsor}></img></a>
               )}
-            </Stack>
+            </div>
           </Col>
         </Row>
         :

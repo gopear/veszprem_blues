@@ -87,8 +87,19 @@
     color: gray;
 }
 
+.footer_sponsor_grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.footer_sponsor_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .footer_sponsor {
-    height: 40px;
+    width: 200px;
     filter: brightness(0) saturate(100%) invert(55%) sepia(0%) saturate(0%) hue-rotate(199deg) brightness(91%) contrast(94%);
 }
 
@@ -149,7 +160,8 @@
 }
 
 @media (max-width: 576px) {
-    .footer_sponsor {
-        height: 28px;
+    .footer_sponsor_grid {
+        gap: 20px;
+        grid-template-columns: 1fr;
     }
 }
