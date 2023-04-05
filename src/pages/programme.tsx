@@ -1,143 +1,79 @@
 import { graphql, HeadProps, PageProps } from 'gatsby'
-import { GatsbyImage, StaticImage } from 'gatsby-plugin-image'
-import { Link, Trans, useI18next } from 'gatsby-plugin-react-i18next'
-import { DateTime, Duration, Interval } from 'luxon'
 import React from 'react'
-import { Col, Container, Row, Table } from 'react-bootstrap'
+import { Col, Container, Row } from 'react-bootstrap'
+import { Trans } from 'react-i18next'
 import Layout from '../components/layout'
 import { SEO } from '../components/seo'
-import * as styles from "../styles/program.module.css"
+import * as styles from '../styles/programme.module.css'
+import { GatsbyImage } from 'gatsby-plugin-image'
 
-type Days = "csutortok" | "pentek" | "szombat" | "vasarnap"
+function getYoutubeId(url: string) {
+  const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+  const match = url.match(regExp);
 
-interface Artist {
-  name: string;
-  slug: string;
-  start: DateTime;
-  end: DateTime;
-  duration: Duration;
-  date: string;
-  stage: string;
-  nationality: string;
-  link: string;
+  return (match && match[2].length === 11)
+    ? match[2]
+    : null;
 }
-
-type Content = JSX.Element | null;
 
 const Programme = ({ data }: PageProps<Queries.ProgrammePageQuery>) => {
 
-  const days = ["csütörtök", "péntek", "szombat", "vasárnap"]
-  const daysNorm: Days[] = ["csutortok", "pentek", "szombat", "vasarnap"]
-  const dates = ["2023-04-13", "2023-04-14", "2023-04-15", "2023-04-16"]
-  const stagesInBackend = ["Ray Charles Ballroom", "Ma Rayney’s Black Bottom", "Boom Boom Room", "Papírkutya"]//, "Hangvilla konferenciaterem"]
-  const stagesToDisplay = ["Ray Charles Ballroom (Hangvilla Nagyterem)", "Ma Rainey's Black Bottom (Expresszó)", "Boom Boom Room (Hangvilla Étterem)", "Papírkutya (ingyenes)"]//, "Hangvilla konferencia-terem"]
-  
-  const { navigate } = useI18next()
+    const days = ["csütörtök", "péntek", "szombat", "vasárnap"]
+    const dates = ["2023-04-13", "2023-04-14", "2023-04-15", "2023-04-16"]
+    const workshops = data.allStrapiProgram.nodes;
 
-  const artists = data.allStrapiArtist.nodes.flatMap(a => a.Performance?.filter(p => p && p?.PerformanceDate && p?.PerformanceDuration && p?.PerformanceStart && p?.Stage)
-    .flatMap(p => {
-      const startDuration = Duration.fromISOTime(p!.PerformanceStart!)
-      const startDate = DateTime.fromISO(`${p!.PerformanceDate!}T${p!.PerformanceStart!}`, { locale: 'hu' })
-      return {
-        name: a.Name,
-        slug: a.Slug,
-        start: startDuration.hours > 10 ? startDate : startDate.plus({ days: 1 }),
-        duration: Duration.fromISOTime(p!.PerformanceDuration!),
-        date: p!.PerformanceDate!,
-        stage: p!.Stage!,
-        nationality: a.Nationality,
-        link: a.gatsbyPath
-      }
-    })) as Artist[]
-
-  return (
-    <Layout>
-      <Container fluid className={styles.container}>
-        {dates.map(d => {
-
-          const startTimes = artists.filter(a => a.date === d).map(a => ({ start: a.start, duration: a.duration }))
-          const min = DateTime.min(...startTimes.map(s => s.start)).minus({ minutes: 15 })
-          const max = DateTime.max(...startTimes.map(s => s.start.plus(s.duration))).plus({ minutes: 30 })
-          const interval = Interval.fromDateTimes(min, max).splitBy(Duration.fromDurationLike({ minutes: 15 })).map(i => i.start)
-
-
-          const content: Content[][] = interval.map(i => (
-            stagesInBackend.map(s => {
-              const artist = artists.find(a => a.date === d && a.stage === s && a.start.equals(i))
-              return artist ?
-                  <td rowSpan={artist.duration.toMillis() / 900000 + 1} className={styles.artist_cell} onClick={() => navigate(artist.link)} >
-                    <div className={styles.artist_name}>{artist.name}</div>
-                    {artist.nationality ?
-                      <div className={styles.nationality}>({artist.nationality})</div>
-                      :
-                      null
-                    }
-                  </td> 
-                : 
-                <td className={styles.empty_cell}/>
-            })
-          ))
-          for (let i = 0; i < content.length; i++) {
-            for (let j = 0; j < content[i].length; j++) {
-              if (content[i][j] !== null) {
-                const rowSpan = content[i][j]!.props['rowSpan']
-                if (rowSpan > 0) {
-                  for (let k = 1; k < rowSpan; k++) {
-                    content[i + k][j] = null
-                  }
-                }
-              }
-            }
-          }
-          return (
-            <Row key={d} className={styles.table_wrapper_row}>
-              <Col xs={12} xl={10} className={styles.table_wrapper_col}>
-                <div className={styles.date}>
-                  <h2><Trans>{days[dates.indexOf(d)]}</Trans></h2>
-                  <h3>{d}</h3>
-                </div>
-                <Table className={styles.table} responsive='lg'>
-                  <colgroup>
-                    <col style={{width: '10%'}}/>
-                    <col style={{width: `${(100-10)/4}%`}}/>
-                    <col style={{width: `${(100-10)/4}%`}}/>
-                    <col style={{width: `${(100-10)/4}%`}}/>
-                    <col style={{width: `${(100-10)/4}%`}}/>
-                    {/* <col style={{width: `${(100-10)/4}%`}}/> */}
-                    {/* <col style={{width: '10%'}}/> */}
-                  </colgroup>
-                  <thead>
-                    <tr>
-                      <th className={styles.header_cell} />
-                      {stagesToDisplay.map(s => <th key={s} className={styles.header_cell}>{s}</th>)}
-                      {/* <th style={{border: 0}}/> */}
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {content.map((c, c_idx) => {
-                      return (
-                        <tr key={c_idx}>
-                          <td className={styles.time_cell}>{interval[c_idx].toLocaleString(DateTime.TIME_24_SIMPLE)}</td>
-                          {/* {c_idx !== 0 && c_idx !== content.length-1 ?
-                            <td className={styles.time_cell}>{interval[c_idx].toLocaleString(DateTime.TIME_24_SIMPLE)}</td>
-                            :
-                            <td className={styles.time_cell}>‎</td>
-                          } */}
-                          {c}
-                          {/* <td className={styles.time_cell}>{interval[c_idx].toLocaleString(DateTime.TIME_24_SIMPLE)}</td> */}
-                        </tr>
-                      )
-                    })}
-                  </tbody>
-                </Table>
-              </Col>
-            </Row>
-          )
-        })}
-
-      </Container>
-    </Layout>
-  )
+    return (
+        <Layout>
+            <Container fluid className={styles.container}>
+                {dates.map(d => {
+                    const date_workshops = workshops.filter(w => w.Date === d); 
+                    return (
+                        date_workshops.length > 0 ?
+                            <div key={d}>
+                                <div className={styles.day}>
+                                    <h2><Trans>{days[dates.indexOf(d)]}</Trans></h2>
+                                    <h3>{d}</h3>
+                                </div>
+                                <div>
+                                    {date_workshops.map(w => {
+                                        return (
+                                            <Row key={w.Name} className={styles.workshop_wrapper}>
+                                                <Col className={styles.ws_content_wrapper} xl={12} xxl={6}>
+                                                  <h4>{w.Name}</h4>
+                                                  <div dangerouslySetInnerHTML={{__html: w.Description!.data!.childMarkdownRemark!.html!}} className={styles.ws_content}/>
+                                                  {w.TicketLink !== null ?
+                                                    <div className={styles.btn_wrapper}>
+                                                      <a className={styles.jegyek} href={w.TicketLink!} target="_blank">
+                                                          <Trans>MEGVESZEM</Trans>
+                                                      </a>
+                                                    </div>
+                                                    : 
+                                                    null}
+                                                </Col>
+                                                <Col className={styles.media_col} xl={12} xxl={5}>
+                                                  {w.YoutubeLink !== null ?
+                                                    <iframe className={`embed-responsive-item ${styles.media}`} src={`https://www.youtube.com/embed/${getYoutubeId(w.YoutubeLink!)}`}
+                                                            width="300" height="380"
+                                                            title={`${w.Name} YouTube video`}
+                                                            allow="encrypted-media"
+                                                            style={{ borderRadius: 10 }} />
+                                                 
+                                                    : w.Image !== null ?
+                                                      <GatsbyImage image={w.Image!.localFile!.childImageSharp!.gatsbyImageData!} alt={w.Name!} className={styles.image} />
+                                                    : null}
+                                                </Col>
+                                            </Row>
+                                        )
+                                    })}
+                                </div>
+                            </div>
+                        :
+                            null
+                    )
+                })}
+            </Container>
+        </Layout>
+    )
 }
 
 export default Programme
@@ -158,33 +94,35 @@ query ProgrammePage($language: String!) {
   seo: locale(language: {eq: $language}, ns: {eq: "programme"}) {
     data
   }
-  allStrapiArtist(filter: {locale: {eq: $language}}) {
+  allStrapiProgram(filter: {locale: {eq: $language}}) {
     nodes {
       Name
-      Slug
-      Nationality
-      Performance {
-        PerformanceDate
-        PerformanceDuration
-        PerformanceStart
-        Stage
+      TicketLink
+      YoutubeLink
+      Image {
+        localFile {
+          childImageSharp {
+            gatsbyImageData (
+              aspectRatio: 1.5,
+              layout: FULL_WIDTH,
+              transformOptions: {
+                cropFocus: CENTER,
+                fit: COVER
+              }
+            )
+          }
+        }
       }
-      gatsbyPath(
-        filePath: "/artist/{StrapiArtist.Slug}"
-      )
+      Description {
+        data {
+          childMarkdownRemark {
+            html
+          }
+        }
+      }
+      Date
+      # Start
     }
-  }
-  csutortok:file(name: {eq: "csutortok_VBF"}) {
-    publicURL
-  }
-  pentek:file(name: {eq: "pentek_VBF"}) {
-    publicURL
-  }
-  szombat:file(name: {eq: "szombat_VBF"}) {
-    publicURL
-  }
-  vasarnap:file(name: {eq: "vasarnap_VBF"}) {
-    publicURL
   }
 }
 `;

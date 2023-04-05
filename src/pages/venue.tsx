@@ -88,6 +88,9 @@ const Venue = ({ data }: PageProps<Queries.VenuePageQuery>)  => {
                   ))}
                 </GoogleMap>
               </LoadScript>
+              {data.strapiVenue?.BottomDescription !== null ?
+                <span dangerouslySetInnerHTML={{__html: data.strapiVenue?.BottomDescription?.data?.childMarkdownRemark?.html!}}/>
+              : null}
             </div>
             
           </Col>
@@ -127,6 +130,13 @@ query VenuePage($language: String!) {
   }
   strapiVenue(locale: {eq: $language}) {
     Description {
+      data {
+        childMarkdownRemark {
+          html
+        }
+      }
+    }
+    BottomDescription {
       data {
         childMarkdownRemark {
           html
