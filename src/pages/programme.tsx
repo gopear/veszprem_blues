@@ -28,7 +28,7 @@ const Programme = ({ data }: PageProps<Queries.ProgrammePageQuery>) => {
         <Layout>
             <Container fluid className={styles.container}>
                 {dates.map(d => {
-                    const date_programs = programs.filter(w => w.Date === d); 
+                    const date_programs = programs.filter(w => w.Date === d).sort((a, b) =>  a.Start!.localeCompare(b.Start!) ); 
                     return (
                         date_programs.length > 0 ?
                             <div key={d}>
