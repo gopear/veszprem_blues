@@ -6,7 +6,7 @@ import React from 'react'
 import { Col, Container, Row, Table } from 'react-bootstrap'
 import Layout from '../components/layout'
 import { SEO } from '../components/seo'
-import * as styles from "../styles/program.module.css"
+import * as styles from "../styles/lineup.module.css"
 
 type Days = "csutortok" | "pentek" | "szombat" | "vasarnap"
 
@@ -24,12 +24,12 @@ interface Artist {
 
 type Content = JSX.Element | null;
 
-const Programme = ({ data }: PageProps<Queries.ProgrammePageQuery>) => {
+const Lineup = ({ data }: PageProps<Queries.LineupPageQuery>) => {
 
   const days = ["csütörtök", "péntek", "szombat", "vasárnap"]
   const daysNorm: Days[] = ["csutortok", "pentek", "szombat", "vasarnap"]
   const dates = ["2023-04-13", "2023-04-14", "2023-04-15", "2023-04-16"]
-  const stagesInBackend = ["Ray Charles Ballroom", "Ma Rayney’s Black Bottom", "Boom Boom Room", "Papírkutya"]//, "Hangvilla konferenciaterem"]
+  const stagesInBackend = ["Ray Charles Ballroom", "Ma Rayney’s Black Bottom", "Boom Boom Room", "Papírkutya (ingyenes)"]//, "Hangvilla konferenciaterem"]
   const stagesToDisplay = ["Ray Charles Ballroom (Hangvilla Nagyterem)", "Ma Rainey's Black Bottom (Expresszó)", "Boom Boom Room (Hangvilla Étterem)", "Papírkutya (ingyenes)"]//, "Hangvilla konferencia-terem"]
   
   const { navigate } = useI18next()
@@ -140,12 +140,12 @@ const Programme = ({ data }: PageProps<Queries.ProgrammePageQuery>) => {
   )
 }
 
-export default Programme
+export default Lineup
 
-export const Head = ({ data }: HeadProps<Queries.ProgrammePageQuery>) => <SEO title={JSON.parse(data.seo!.data!).seo} />
+export const Head = ({ data }: HeadProps<Queries.LineupPageQuery>) => <SEO title={JSON.parse(data.seo!.data!).seo} />
 
 export const query = graphql`
-query ProgrammePage($language: String!) {
+query LineupPage($language: String!) {
   locales: allLocale(filter: {language: {eq: $language}}) {
     edges {
       node {
@@ -155,7 +155,7 @@ query ProgrammePage($language: String!) {
       }
     }
   }
-  seo: locale(language: {eq: $language}, ns: {eq: "programme"}) {
+  seo: locale(language: {eq: $language}, ns: {eq: "lineup"}) {
     data
   }
   allStrapiArtist(filter: {locale: {eq: $language}}) {

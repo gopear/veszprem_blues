@@ -76,7 +76,7 @@ query IndexPage($language: String!) {
   seo: locale(language: {eq: $language}, ns: {eq: "index"}) {
     data
   }
-  strapiIndex {
+  strapiIndex(locale: {eq: $language}) {
     Hero {
       url
     }

@@ -38,6 +38,11 @@ const strapiConfig = {
   singleTypes: ['common', 'ticket',
     {
       singularName: 'index',
+      pluginOptions: {
+        i18n: {
+          locale: 'all'
+        }
+      },
       queryParams: {
         populate: {
           Hero: "*",

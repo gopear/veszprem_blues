@@ -63,7 +63,7 @@ const Navigation = () => {
         <Navbar.Collapse id='responsive-navbar-nav' className={!collapsed ? 'show' : ''} >
           <Nav className={styles.navbar_menu_wrapper}>
             <Nav.Item>
-              <Link to='/programme'><Trans>Program</Trans></Link>
+              <Link to='/lineup'><Trans>Lineup</Trans></Link>
             </Nav.Item>
             <Nav.Item>
               <Link to='/artists'><Trans>Fellépők</Trans></Link>
@@ -72,7 +72,7 @@ const Navigation = () => {
               <Link to='/tickets'><Trans>Jegyek</Trans></Link>
             </Nav.Item>
             <Nav.Item>
-              <Link to='/workshops'><Trans>Workshopok</Trans></Link>
+              <Link to='/programs'><Trans>Program</Trans></Link>
             </Nav.Item>
             <Nav.Item>
               <Link to='/venue'><Trans>Helyszín</Trans></Link>
