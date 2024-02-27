@@ -35,7 +35,7 @@ const strapiConfig = {
       }
     }
   ],
-  singleTypes: ['common', 'ticket',
+  singleTypes: ['common', 'ticket', 'summary',
     {
       singularName: 'index',
       pluginOptions: {

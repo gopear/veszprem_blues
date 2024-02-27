@@ -1,0 +1,40 @@
+.container {
+  width: 80%;
+  padding: 20px 0;
+}
+
+.row {
+  justify-content: center;
+  padding: 60px 70px;
+  padding-top: 160px;
+  padding-bottom: 130px;
+  background-color: white;
+  clip-path: polygon(0 9%, 93% 13%, 100% 100%, 3% 92%);
+}
+
+.content {
+  font-family: 'Druk Text';
+  font-size: 1.4rem;
+  text-align: justify;
+  width: 100%;
+}
+
+@media (max-width: 576px) {
+  .content {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 1400px) {
+  .row {
+      padding-top: 210px;
+  }
+}
+
+@media (max-width: 768px) {
+  .row {
+    clip-path: none;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+}

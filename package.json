@@ -47,5 +47,8 @@
     "@types/react-dom": "^18.0.8",
     "gatsby-plugin-dts-css-modules": "^3.0.0",
     "typescript": "^4.8.4"
+  },
+  "volta": {
+    "node": "18.19.1"
   }
 }

@@ -77,9 +77,9 @@ const Navigation = () => {
             <Nav.Item>
               <Link to='/venue'><Trans>Helyszín</Trans></Link>
             </Nav.Item>
-            {/* <Nav.Item>
-              <Link to='/news'><Trans>Hírek</Trans></Link>
-            </Nav.Item> */}
+            <Nav.Item>
+              <Link to='/summary'><Trans>Összegzés</Trans></Link>
+            </Nav.Item>
             <Nav.Item>
               <Link to='/contact'><Trans>Kapcsolat</Trans></Link>
             </Nav.Item>
